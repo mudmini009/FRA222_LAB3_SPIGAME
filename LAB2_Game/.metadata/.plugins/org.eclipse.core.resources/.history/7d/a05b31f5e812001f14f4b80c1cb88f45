@@ -45,15 +45,8 @@ UART_HandleTypeDef hlpuart1;
 SPI_HandleTypeDef hspi3;
 
 /* USER CODE BEGIN PV */
-//SPI part
 uint8_t SPIRx[10];
 uint8_t SPITx[10];
-
-//my game part
-int game_winner=0;//0=no 1=ai 2=human
-int game_turn=0;//0=player 1=ai
-int game_left=5;//amount of lamp that has left
-int game_pick=0;//amount of pick for LED
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -323,16 +316,6 @@ SPITx[3] = 0;
 HAL_SPI_TransmitReceive_IT(&hspi3, SPITx, SPIRx, 4);
 }
 }
-
-static void TikTokGame()//
-{
-//	int game_winner;//0=no 1=ai 2=human
-//	int game_turn;//0=player 1=ai
-//	int game_left;//amount of lamp that has left
-//	int game_pick=0;//amount of pick for LED
-	if(turn)
-}
-
 void HAL_SPI_TxRxCpltCallback(SPI_HandleTypeDef *hspi)
 {
 HAL_GPIO_WritePin(GPIOD, GPIO_PIN_2, 1); //CS dnSelect
