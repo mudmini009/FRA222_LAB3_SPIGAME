@@ -587,11 +587,11 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)// timer interrupt fo
 if(htim == &htim3)
 {
 //
-//	LMode1+=1;
-//	if (LMode1>8)
-//	{
-//	LMode1 = 1;
-//	}
+	LMode1+=1;
+	if (LMode1>8)
+	{
+	LMode1 = 1;
+	}
 }
 }
 

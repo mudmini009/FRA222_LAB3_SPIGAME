@@ -57,10 +57,6 @@ int game_winner=0;//0=no 1=ai 2=human
 int game_turn=0;//0=player 1=ai
 int game_left=5;//amount of lamp that has left
 int game_pick=0;//amount of pick for LED
-
-//other
-uint16_t LMode;//for light
-
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -550,11 +546,7 @@ void LEDdisplay() {
 	        case 1:
 	            // AI wins
 	        	//light effect
-	        	HAL_GPIO_WritePin(GPIOD, GPIO_PIN_2, 0); // CS Select
-	        	SPITx[0] = 0b01000000;
-	        	SPITx[1] = 0x01;
-	        	SPITx[2] = 0b00111111;
-	        	HAL_SPI_TransmitReceive_IT(&hspi3, SPITx, SPIRx, 3);
+
 	        	//reset after light
                 game_pick = 0; // no pick
                 game_left = 5; // coin left 5
@@ -587,11 +579,6 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)// timer interrupt fo
 if(htim == &htim3)
 {
 //
-//	LMode1+=1;
-//	if (LMode1>8)
-//	{
-//	LMode1 = 1;
-//	}
 }
 }
 
