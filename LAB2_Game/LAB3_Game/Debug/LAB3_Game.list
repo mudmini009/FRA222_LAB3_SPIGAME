@@ -907,6 +907,7 @@ HAL_Delay(1);
  8000824:	48000c00 	.word	0x48000c00
 
 08000828 <SPITxRx_readIO>:
+
 void SPITxRx_readIO()
 {
  8000828:	b580      	push	{r7, lr}

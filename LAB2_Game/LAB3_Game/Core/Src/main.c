@@ -303,6 +303,7 @@ HAL_Delay(1);
 HAL_GPIO_WritePin(GPIOD, GPIO_PIN_2, 1); // CS deSelect
 HAL_Delay(1);
 }
+
 void SPITxRx_readIO()
 {
 if(HAL_GPIO_ReadPin(GPIOD,GPIO_PIN_2))
