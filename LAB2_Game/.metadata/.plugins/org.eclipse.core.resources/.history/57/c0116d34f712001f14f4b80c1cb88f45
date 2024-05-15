@@ -536,6 +536,8 @@ void TikTokGame()
 
 void LEDdisplay() {
     // Add your code here to control the LEDs
+	SPITx[0] = 0b01000000;//write
+	SPITx[1] = 0x15;//OLATB
 	switch (game_winner) {
 	        case 0:
 	            // Still playing
@@ -544,17 +546,20 @@ void LEDdisplay() {
 	        case 1:
 	            // AI wins
 	        	//show all light loser
-	        	SPITx[0] = 0b01000000; // write command
-	        	SPITx[1] = 0x15;       // OLATB register address
-	        	SPITx[2] = 0b00000001; // set the appropriate bit to turn the LED on
-	        	HAL_SPI_TransmitReceive_IT(&hspi3, SPITx, SPIRx, 3);
-	        	HAL_Delay(100);
-	        	// Turn the LED off
-	        	SPITx[0] = 0b01000000; // write command
-	        	SPITx[1] = 0x15;       // OLATB register address
-	        	SPITx[2] = 0b00000010; // clear the appropriate bit to turn the LED off
-	        	HAL_SPI_TransmitReceive_IT(&hspi3, SPITx, SPIRx, 3);
-	        	HAL_Delay(100);
+        	    SPITx[2] = 0b00111111;
+	        	HAL_Delay(100);//delay
+	        	SPITx[2] = 0b00000000;
+	        	HAL_Delay(100);//delay
+	        	SPITx[2] = 0b00111111;
+	        	HAL_Delay(100);//delay
+	        	SPITx[2] = 0b00000000;
+	        	HAL_Delay(100);//delay
+	        	SPITx[2] = 0b00111111;
+	        	HAL_Delay(100);//delay
+	        	SPITx[2] = 0b00000000;
+	        	HAL_Delay(100 );//delay
+	        	SPITx[2] = 0b00111111;
+	        	HAL_Delay(1000);//delay
 	        	//reset
                 game_pick = 0; // no pick
                 game_left = 5; // coin left 5

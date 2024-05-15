@@ -546,13 +546,13 @@ void LEDdisplay() {
 	        	//show all light loser
 	        	SPITx[0] = 0b01000000; // write command
 	        	SPITx[1] = 0x15;       // OLATB register address
-	        	SPITx[2] = 0b00000001; // set the appropriate bit to turn the LED on
+	        	SPITx[2] = 0b00111111; // set the appropriate bit to turn the LED on
 	        	HAL_SPI_TransmitReceive_IT(&hspi3, SPITx, SPIRx, 3);
 	        	HAL_Delay(100);
 	        	// Turn the LED off
 	        	SPITx[0] = 0b01000000; // write command
 	        	SPITx[1] = 0x15;       // OLATB register address
-	        	SPITx[2] = 0b00000010; // clear the appropriate bit to turn the LED off
+	        	SPITx[2] = 0b00000000; // clear the appropriate bit to turn the LED off
 	        	HAL_SPI_TransmitReceive_IT(&hspi3, SPITx, SPIRx, 3);
 	        	HAL_Delay(100);
 	        	//reset
