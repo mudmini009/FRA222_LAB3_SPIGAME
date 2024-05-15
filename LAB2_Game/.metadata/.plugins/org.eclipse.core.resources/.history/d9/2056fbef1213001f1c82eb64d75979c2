@@ -116,16 +116,15 @@ int main(void)
   MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
   HAL_TIM_Base_Start(&htim3); // start timer
-    HAL_UART_Transmit(&hlpuart1, (uint8_t *)"This game you need to PICK 1 or 2 coins VS our AI(just BOT)\n", strlen("This game you need to PICK 1 or 2 coins VS our AI(just BOT)\n"), HAL_MAX_DELAY);
+  HAL_UART_Transmit(&hlpuart1, (uint8_t *)"This game you need to PICK 1 or 2 coins VS our AI(just BOT)\n", strlen("This game you need to PICK 1 or 2 coins VS our AI(just BOT)\n"), HAL_MAX_DELAY);
     HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Who pick the last coin Win!!\n", strlen("Who pick the last coin Win!!\n"), HAL_MAX_DELAY);
     HAL_UART_Transmit(&hlpuart1, (uint8_t *)"If you're ready please type\n", strlen("If you're ready please type\n"), HAL_MAX_DELAY);
     HAL_UART_Transmit(&hlpuart1, (uint8_t *)"wanna play this game so bad\n", strlen("wanna play this game so bad\n"), HAL_MAX_DELAY);
-    HAL_UART_Transmit(&hlpuart1, (uint8_t *)"and now you can join\n", strlen("and now you can join\n"), HAL_MAX_DELAY);
-//AreYouReadyToPlay();
-//SPITxRx_readIO();
-//TikTokGame();
-//CoinLeftUART();
-//LEDdisplay();
+    HAL_UART_Transmit(&hlpuart1, (uint8_t *)"and now you can join", strlen("and now you can join"), HAL_MAX_DELAY);
+  SPITxRx_Setup();
+  //TikTokGame();
+  //LEDdisplay();
+  //CoinLeftUART();
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
