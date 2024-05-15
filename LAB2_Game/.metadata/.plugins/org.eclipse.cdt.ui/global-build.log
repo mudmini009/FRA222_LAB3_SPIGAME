@@ -57,3 +57,10 @@ Finished building: default.size.stdout
  
 Finished building: LAB3_Game.list
  
+00:25:52 **** Build of configuration Debug for project LAB3_Game ****
+make -j16 all 
+arm-none-eabi-size   LAB3_Game.elf 
+   text	   data	    bss	    dec	    hex	filename
+  15144	     20	   1844	  17008	   4270	LAB3_Game.elf
+Finished building: default.size.stdout
+ 
