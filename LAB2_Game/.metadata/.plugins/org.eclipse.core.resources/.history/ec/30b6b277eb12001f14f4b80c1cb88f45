@@ -326,45 +326,47 @@ HAL_SPI_TransmitReceive_IT(&hspi3, SPITx, SPIRx, 4);
 }
 }
 
-void TikTokGame()
+void TikTokGame()//
 {
-    // Your variable declarations here
-
-    if(game_turn == 0) // player turn
-    {
-        game_turn = 1;
-    }
-    else // ai turn
-    {
-        switch (game_left)
-        {
-            case 4:
-                // statements
-                game_pick = 1; // pick1
-                game_left = 3; // coin left 3
-                game_winner = 0; // no winner
-                break;
-            case 3:
-                // statements
-                game_pick = 1; // pick1
-                game_left = 2; // coin left 3
-                game_winner = 0; // no winner
-                break;
-            case 2:
-                // statements
-                game_pick = 2; // pick2
-                game_left = 0; // coin left 3
-                game_winner = 1; // ai winner
-                break;
-            case 1:
-                // statements
-                game_pick = 1; // pick1
-                game_left = 0; // coin left 3
-                game_winner = 1; // ai winner
-                break;
-        }
-        game_turn = 0;
-    }
+//	int game_winner;//0=no 1=ai 2=human
+//	int game_turn;//0=player 1=ai
+//	int game_left;//amount of lamp that has left
+//	int game_pick=0;//amount of pick for LED
+	if(game_turn==0)//player turn
+	{
+		game_turn==1;
+	}
+	else//ai turn
+	{
+		switch (game_left)
+		​{
+		    case 4:
+		      // statements
+		    	game_pick=1;//pick1
+				game_left=3;//coin left 3
+				game_winner=0;//no winner
+		      break;
+		    case 3:
+		      // statements
+		    	game_pick=1;//pick1
+				game_left=2;//coin left 3
+				game_winner=0;//no winner
+		      break;
+		    case 2:
+		      // statements
+		    	game_pick=2;//pick2
+				game_left=0;//coin left 3
+				game_winner=1;//ai winner
+		      break;
+		    case 1:
+		      // statements
+		    	game_pick=1;//pick1
+				game_left=0;//coin left 3
+				game_winner=1;//ai winner
+		      break;
+		}
+		game_turn==0;
+	}
 }
 
 void HAL_SPI_TxRxCpltCallback(SPI_HandleTypeDef *hspi)
