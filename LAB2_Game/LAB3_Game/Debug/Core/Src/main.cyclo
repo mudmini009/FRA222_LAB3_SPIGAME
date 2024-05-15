@@ -7,7 +7,7 @@
 ../Core/Src/main.c:360:6:SPITxRx_Setup	1
 ../Core/Src/main.c:369:6:SPITxRx_readIO	2
 ../Core/Src/main.c:382:6:TikTokGame	22
-../Core/Src/main.c:537:6:LEDdisplay	5
+../Core/Src/main.c:537:6:LEDdisplay	6
 ../Core/Src/main.c:573:6:HAL_TIM_PeriodElapsedCallback	1
 ../Core/Src/main.c:581:6:HAL_SPI_TxRxCpltCallback	1
 ../Core/Src/main.c:591:6:Error_Handler	1

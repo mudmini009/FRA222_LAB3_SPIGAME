@@ -361,9 +361,9 @@ void SPITxRx_Setup()
 {
 //CS pulse
 HAL_GPIO_WritePin(GPIOD, GPIO_PIN_2, 0); // CS Select
-HAL_Delay(1);
+HAL_Delay(5);
 HAL_GPIO_WritePin(GPIOD, GPIO_PIN_2, 1); // CS deSelect
-HAL_Delay(1);
+HAL_Delay(5);
 }
 
 void SPITxRx_readIO()
@@ -531,7 +531,7 @@ void TikTokGame()
         }
         game_turn = 0;
     }
-    HAL_Delay(100);//delay
+    HAL_Delay(200);//delay
 }
 
 void LEDdisplay() {
@@ -539,35 +539,35 @@ void LEDdisplay() {
 	switch (game_winner) {
 	        case 0:
 	            // Still playing
-	            // Add code for the case when the game is still ongoing
 	            break;
 	        case 1:
 	            // AI wins
-	        	//show all light loser
-	        	SPITx[0] = 0b01000000; // write command
-	        	SPITx[1] = 0x15;       // OLATB register address
-	        	SPITx[2] = 0b00000001; // set the appropriate bit to turn the LED on
-	        	HAL_SPI_TransmitReceive_IT(&hspi3, SPITx, SPIRx, 3);
-	        	HAL_Delay(100);
-	        	// Turn the LED off
-	        	SPITx[0] = 0b01000000; // write command
-	        	SPITx[1] = 0x15;       // OLATB register address
-	        	SPITx[2] = 0b00000010; // clear the appropriate bit to turn the LED off
-	        	HAL_SPI_TransmitReceive_IT(&hspi3, SPITx, SPIRx, 3);
-	        	HAL_Delay(100);
-	        	//reset
-                game_pick = 0; // no pick
-                game_left = 5; // coin left 5
-                game_winner = 0; // no winner
-                game_turn = 0; // human turn
 	            // Add code for the case when the AI wins
+	            // For example, if you want to blink all LEDs to indicate AI win:
+	            // Blink all LEDs twice
+	            for (int i = 0; i < 10; i++) {
+	                SPITx[0] = 0b01000000; // write command
+	                SPITx[1] = 0x15;       // OLATB register address
+	                SPITx[2] = 0b11111111; // set all LEDs on
+	                HAL_SPI_TransmitReceive_IT(&hspi3, SPITx, SPIRx, 3);
+	                HAL_Delay(500); // Delay for 500ms
+	                SPITx[0] = 0b01000000; // write command
+	                SPITx[1] = 0x15;       // OLATB register address
+	                SPITx[2] = 0b00000000; // set all LEDs off
+	                HAL_SPI_TransmitReceive_IT(&hspi3, SPITx, SPIRx, 3);
+	                HAL_Delay(500); // Delay for 500ms
+	            }
 	            break;
 	        case 2:
 	            // Human wins
 	            // Add code for the case when the human wins
+	            // For example, if you want to light up all LEDs to indicate human win:
+	            SPITx[0] = 0b01000000; // write command
+	            SPITx[1] = 0x15;       // OLATB register address
+	            SPITx[2] = 0b11111111; // set all LEDs on
+	            HAL_SPI_TransmitReceive_IT(&hspi3, SPITx, SPIRx, 3);
 	            break;
 	    }
-    // For example:
 }
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)// timer interrupt for led
