@@ -116,7 +116,7 @@ int main(void)
   MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
   HAL_TIM_Base_Start(&htim3); // start timer
-  AreYouReadyToPlay();
+  AreYouReadyToPlay()
   SPITxRx_Setup();
   TikTokGame();
   LEDdisplay();

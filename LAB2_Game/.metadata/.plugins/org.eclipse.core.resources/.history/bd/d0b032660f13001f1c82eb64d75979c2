@@ -116,16 +116,14 @@ int main(void)
   MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
   HAL_TIM_Base_Start(&htim3); // start timer
-  AreYouReadyToPlay();
+  AreYouReadyToPlay()
   SPITxRx_Setup();
   TikTokGame();
   LEDdisplay();
   CoinLeftUART();
-  HAL_UART_Transmit(&hlpuart1, (uint8_t *)"This game you need to PICK 1 or 2 coins VS our AI(just BOT)\n", strlen("This game you need to PICK 1 or 2 coins VS our AI(just BOT)\n"), HAL_MAX_DELAY);
-  HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Who pick the last coin Win!!\n", strlen("Who pick the last coin Win!!\n"), HAL_MAX_DELAY);
-  HAL_UART_Transmit(&hlpuart1, (uint8_t *)"If you're ready please type\n", strlen("If you're ready please type\n"), HAL_MAX_DELAY);
-  HAL_UART_Transmit(&hlpuart1, (uint8_t *)"I wanna play this game so bad\n", strlen("I wanna play this game so bad\n"), HAL_MAX_DELAY);
-  HAL_UART_Transmit(&hlpuart1, (uint8_t *)"and now you can join", strlen("and now you can join"), HAL_MAX_DELAY);
+  HAL_UART_Transmit(&hlpuart1, (uint8_t *)"This game you need to PICK 1 or 2 coins VS our AI(just BOT)\nWho pick the last coin Win!!\nIf you ready please type\nI wanna play this game so bad\nand now you can join", strlen("This game you need to PICK 1 or 2 coins VS our AI(just BOT)\nWho pick the last coin Win!!\nIf you ready please type\nI wanna play this game so bad\nand now you can join"), HAL_MAX_DELAY);
+  /* USER CODE END 2 */
+
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
@@ -380,7 +378,7 @@ void AreYouReadyToPlay() {
 
     HAL_StatusTypeDef status = HAL_UART_Receive(&hlpuart1, RxBuffer, sizeof(RxBuffer) - 1, HAL_MAX_DELAY);
 
-    if (status == HAL_OK && strcmp((char*)RxBuffer, "I wanna play this game so bad") == 0) {//correct condition
+    if (status == HAL_OK && strcmp((char*)RxBuffer, "ready") == 0) {//correct condition
     	ReadyToPlay=1; //you are ready to play
     }
 }

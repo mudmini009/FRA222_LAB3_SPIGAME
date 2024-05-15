@@ -58,13 +58,8 @@ int game_turn=0;//0=player 1=ai
 int game_left=5;//amount of lamp that has left
 int game_pick=0;//amount of pick for LED
 
-//light (not use anymore)
+//other
 uint16_t LMode;//for light
-
-//UART
-uint8_t RxBuffer[90];
-uint8_t TxBuffer[90];
-int ReadyToPlay = 0;
 
 /* USER CODE END PV */
 
@@ -116,16 +111,13 @@ int main(void)
   MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
   HAL_TIM_Base_Start(&htim3); // start timer
-  AreYouReadyToPlay();
   SPITxRx_Setup();
   TikTokGame();
   LEDdisplay();
   CoinLeftUART();
-  HAL_UART_Transmit(&hlpuart1, (uint8_t *)"This game you need to PICK 1 or 2 coins VS our AI(just BOT)\n", strlen("This game you need to PICK 1 or 2 coins VS our AI(just BOT)\n"), HAL_MAX_DELAY);
-  HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Who pick the last coin Win!!\n", strlen("Who pick the last coin Win!!\n"), HAL_MAX_DELAY);
-  HAL_UART_Transmit(&hlpuart1, (uint8_t *)"If you're ready please type\n", strlen("If you're ready please type\n"), HAL_MAX_DELAY);
-  HAL_UART_Transmit(&hlpuart1, (uint8_t *)"I wanna play this game so bad\n", strlen("I wanna play this game so bad\n"), HAL_MAX_DELAY);
-  HAL_UART_Transmit(&hlpuart1, (uint8_t *)"and now you can join", strlen("and now you can join"), HAL_MAX_DELAY);
+  HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn PICK 1 or 2 coins\n", strlen("Your Turn PICK 1 or 2 coins\n"), HAL_MAX_DELAY);
+  /* USER CODE END 2 */
+
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
@@ -133,13 +125,10 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  AreYouReadyToPlay();
-	  while (ReadyToPlay == 1) {
-	      SPITxRx_readIO();
-	      TikTokGame();
-	      CoinLeftUART();
-	      LEDdisplay();
-	  }
+	  SPITxRx_readIO();
+	  TikTokGame();
+	  CoinLeftUART();
+	  LEDdisplay();
   }
   /* USER CODE END 3 */
 }
@@ -375,15 +364,6 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-void AreYouReadyToPlay() {
-    memset(RxBuffer, 0, sizeof(RxBuffer)); // Clear the receive buffer
-
-    HAL_StatusTypeDef status = HAL_UART_Receive(&hlpuart1, RxBuffer, sizeof(RxBuffer) - 1, HAL_MAX_DELAY);
-
-    if (status == HAL_OK && strcmp((char*)RxBuffer, "I wanna play this game so bad") == 0) {//correct condition
-    	ReadyToPlay=1; //you are ready to play
-    }
-}
 
 void SPITxRx_Setup()
 {
@@ -588,7 +568,6 @@ void LEDdisplay() {
                 game_turn = 0; // human turn
                 // Send the message over UART
                 HAL_UART_Transmit(&hlpuart1, (uint8_t *)"AI Win!! Humanity Lost!\n", strlen("AI Win!! Humanity Lost!\n"), HAL_MAX_DELAY);
-                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Try again we believe in you\n", strlen("Try again we believe in you\n"), HAL_MAX_DELAY);
                 HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Coin left is 5. It's your turn to pick.\n", strlen("Coin left is 5. It's your turn to pick.\n"), HAL_MAX_DELAY);
 	            break;
 	        case 2:
@@ -600,7 +579,6 @@ void LEDdisplay() {
                 game_turn = 0; // human turn
                 // Send the message over UART
                 HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Congrats You are winning!!!\n", strlen("Congrats You are winning!!!\n"), HAL_MAX_DELAY);
-                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"But now what?? Let's play again I know You still fun\n", strlen("But now what?? Let's play again I know You still fun\n"), HAL_MAX_DELAY);
                 HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Coin left is 5. It's your turn to pick.\n", strlen("Coin left is 5. It's your turn to pick.\n"), HAL_MAX_DELAY);
 	            break;
 	    }
