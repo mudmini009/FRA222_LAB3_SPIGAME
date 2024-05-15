@@ -385,7 +385,6 @@ void AreYouReadyToPlay() {
 
         if (status == HAL_OK && strcmp((char*)RxBuffer, "wanna play this game so bad") == 0) {//correct condition
             ReadyToPlay=1; //you are ready to play
-            HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Welcome Your Turn start!\n", strlen("Welcome Your Turn start!\n"), HAL_MAX_DELAY);
             break; // Exit the loop once condition is met
         }
         else {
@@ -593,7 +592,7 @@ void TikTokGame()
         game_turn = 0;
         HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn NOW!!\n", strlen("Your Turn NOW!!\n"), HAL_MAX_DELAY);
     }
-    HAL_Delay(250);//delay
+    HAL_Delay(200);//delay
 }
 
 void LEDdisplay() {

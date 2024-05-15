@@ -116,7 +116,7 @@ int main(void)
   MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
   HAL_TIM_Base_Start(&htim3); // start timer
-    HAL_UART_Transmit(&hlpuart1, (uint8_t *)"\nYou need to PICK 1 or 2 coins VS AI\n", strlen("\nYou need to PICK 1 or 2 coins VS AI\n"), HAL_MAX_DELAY);
+    HAL_UART_Transmit(&hlpuart1, (uint8_t *)"\nThis game you need to PICK 1 or 2 coins VS our AI(just BOT)\n", strlen("\nThis game you need to PICK 1 or 2 coins VS our AI(just BOT)\n"), HAL_MAX_DELAY);
     HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Who pick the last coin Win!!\n", strlen("Who pick the last coin Win!!\n"), HAL_MAX_DELAY);
     HAL_UART_Transmit(&hlpuart1, (uint8_t *)"If you're ready please type\n", strlen("If you're ready please type\n"), HAL_MAX_DELAY);
     HAL_UART_Transmit(&hlpuart1, (uint8_t *)"wanna play this game so bad\n", strlen("wanna play this game so bad\n"), HAL_MAX_DELAY);
@@ -385,7 +385,6 @@ void AreYouReadyToPlay() {
 
         if (status == HAL_OK && strcmp((char*)RxBuffer, "wanna play this game so bad") == 0) {//correct condition
             ReadyToPlay=1; //you are ready to play
-            HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Welcome Your Turn start!\n", strlen("Welcome Your Turn start!\n"), HAL_MAX_DELAY);
             break; // Exit the loop once condition is met
         }
         else {
@@ -455,7 +454,7 @@ void TikTokGame()
     	                game_winner = 0; // no winner
     	                game_turn = 0; // human turn
     	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Loser gonna keep restart\n", strlen("Loser gonna keep restart\n"), HAL_MAX_DELAY);
-    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn NOW!!\n", strlen("Your Turn NOW!!\n"), HAL_MAX_DELAY);
+    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn PICK 1 or 2 coins\n", strlen("Your Turn PICK 1 or 2 coins\n"), HAL_MAX_DELAY);
     	                break;
     	            default: // multi press do nothing
     	                break;
@@ -486,7 +485,7 @@ void TikTokGame()
     	                game_winner = 0; // no winner
     	                game_turn = 0; // human turn
     	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Loser gonna keep restart\n", strlen("Loser gonna keep restart\n"), HAL_MAX_DELAY);
-    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn NOW!!\n", strlen("Your Turn NOW!!\n"), HAL_MAX_DELAY);
+    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn PICK 1 or 2 coins\n", strlen("Your Turn PICK 1 or 2 coins\n"), HAL_MAX_DELAY);
     	                break;
     	            default: // multi press do nothing
     	                break;
@@ -517,7 +516,7 @@ void TikTokGame()
     	                game_winner = 0; // no winner
     	                game_turn = 0; // human turn
     	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Loser gonna keep restart\n", strlen("Loser gonna keep restart\n"), HAL_MAX_DELAY);
-    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn NOW!!\n", strlen("Your Turn NOW!!\n"), HAL_MAX_DELAY);
+    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn PICK 1 or 2 coins\n", strlen("Your Turn PICK 1 or 2 coins\n"), HAL_MAX_DELAY);
     	                break;
     	            default: // multi press do nothing
     	                break;
@@ -548,7 +547,7 @@ void TikTokGame()
     	                game_winner = 0; // no winner
     	                game_turn = 0; // human turn
     	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Loser gonna keep restart\n", strlen("Loser gonna keep restart\n"), HAL_MAX_DELAY);
-    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn NOW!!\n", strlen("Your Turn NOW!!\n"), HAL_MAX_DELAY);
+    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn PICK 1 or 2 coins\n", strlen("Your Turn PICK 1 or 2 coins\n"), HAL_MAX_DELAY);
     	                break;
     	            default: // multi press do nothing
     	                break;
@@ -591,9 +590,9 @@ void TikTokGame()
                 break;
         }
         game_turn = 0;
-        HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn NOW!!\n", strlen("Your Turn NOW!!\n"), HAL_MAX_DELAY);
+        HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn PICK 1 or 2 coins\n", strlen("Your Turn PICK 1 or 2 coins\n"), HAL_MAX_DELAY);
     }
-    HAL_Delay(250);//delay
+    HAL_Delay(200);//delay
 }
 
 void LEDdisplay() {
