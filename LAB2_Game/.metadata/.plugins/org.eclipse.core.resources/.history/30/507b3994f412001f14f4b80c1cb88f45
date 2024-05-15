@@ -108,7 +108,6 @@ int main(void)
   HAL_TIM_Base_Start(&htim3); // start timer
   SPITxRx_Setup();
   TikTokGame();
-  LEDdisplay()
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -534,7 +533,7 @@ void TikTokGame()
     HAL_Delay(100);//delay
 }
 
-void LEDdisplay() {
+void LEDdisplay(void) {
     // Add your code here to control the LEDs
 	SPITx[0] = 0b01000000;//write
 	SPITx[1] = 0x15;//OLATB
@@ -547,19 +546,19 @@ void LEDdisplay() {
 	            // AI wins
 	        	//show all light loser
 	        	SPITx[2] = 0b00111111;
-//	        	HAL_Delay(1000);//delay
-//	        	SPITx[2] = 0b00000000;
-//	        	HAL_Delay(1000);//delay
-//	        	SPITx[2] = 0b00111111;
-//	        	HAL_Delay(1000);//delay
-//	        	SPITx[2] = 0b00000000;
-//	        	HAL_Delay(1000);//delay
-//	        	SPITx[2] = 0b00111111;
-//	        	HAL_Delay(1000);//delay
-//	        	SPITx[2] = 0b00000000;
-//	        	HAL_Delay(1000);//delay
-//	        	SPITx[2] = 0b00111111;
-//	        	HAL_Delay(1000);//delay
+	        	HAL_Delay(1000);//delay
+	        	SPITx[2] = 0b00000000;
+	        	HAL_Delay(1000);//delay
+	        	SPITx[2] = 0b00111111;
+	        	HAL_Delay(1000);//delay
+	        	SPITx[2] = 0b00000000;
+	        	HAL_Delay(1000);//delay
+	        	SPITx[2] = 0b00111111;
+	        	HAL_Delay(1000);//delay
+	        	SPITx[2] = 0b00000000;
+	        	HAL_Delay(1000);//delay
+	        	SPITx[2] = 0b00111111;
+	        	HAL_Delay(1000);//delay
 	        	//reset
                 game_pick = 0; // no pick
                 game_left = 5; // coin left 5
