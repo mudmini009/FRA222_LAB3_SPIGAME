@@ -21,7 +21,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include <stdio.h>
+#include <string.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -110,8 +111,6 @@ int main(void)
   TikTokGame();
   LEDdisplay();
   CoinLeftUART();
-  uint8_t text[] = "HELLO FIBO"; // Define the text message to send
-  HAL_UART_Transmit(&hlpuart1, text , 11, 10);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -121,9 +120,9 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  CoinLeftUART();
 	  SPITxRx_readIO();
 	  TikTokGame();
+	  CoinLeftUART();
 	  LEDdisplay();
   }
   /* USER CODE END 3 */
@@ -549,23 +548,27 @@ void LEDdisplay() {
 	        	//reset after light
                 game_pick = 0; // no pick
                 game_left = 5; // coin left 5
-                game_winner = 0; // no winner
+                game_winner = 0; // RESET
                 game_turn = 0; // human turn
+                // Send the message over UART
+                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Coin left is 5. It's your turn to pick.\n", strlen("Coin left is 5. It's your turn to pick.\n"), HAL_MAX_DELAY);
 	            break;
 	        case 2:
 	            // Human wins
 	        	//reset after light
                 game_pick = 0; // no pick
                 game_left = 5; // coin left 5
-                game_winner = 0; // no winner
+                game_winner = 0; // RESET
                 game_turn = 0; // human turn
+                // Send the message over UART
+                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Coin left is 5. It's your turn to pick.\n", strlen("Coin left is 5. It's your turn to pick.\n"), HAL_MAX_DELAY);
 	            break;
 	    }
 }
 void CoinLeftUART() {
-    char coin_left_message[20]; // Buffer to store the message
-    sprintf(coin_left_message, "Coin left is %d\n", game_left);
-    HAL_UART_Transmit(&hlpuart1, (uint8_t *)coin_left_message, strlen(coin_left_message), HAL_MAX_DELAY);
+	 char coin_left_message[30]; // Buffer to store the message
+	    sprintf(coin_left_message, "Coin left is %d\r\n", game_left); // Use \r\n for proper newline
+	    HAL_UART_Transmit(&hlpuart1, (uint8_t *)coin_left_message, strlen(coin_left_message), HAL_MAX_DELAY);
 }
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)// timer interrupt for led
 {
