@@ -115,7 +115,6 @@ int main(void)
   TikTokGame();
   LEDdisplay();
   CoinLeftUART();
-  HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn PICK 1 or 2 coins\n", strlen("Your Turn PICK 1 or 2 coins\n"), HAL_MAX_DELAY);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -419,7 +418,6 @@ void TikTokGame()
     	                game_left = 5; // coin left 5
     	                game_winner = 0; // no winner
     	                game_turn = 0; // human turn
-    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn PICK 1 or 2 coins\n", strlen("Your Turn PICK 1 or 2 coins\n"), HAL_MAX_DELAY);
     	                break;
     	            default: // multi press do nothing
     	                break;
@@ -447,7 +445,6 @@ void TikTokGame()
     	                game_left = 5; // coin left 5
     	                game_winner = 0; // no winner
     	                game_turn = 0; // human turn
-    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn PICK 1 or 2 coins\n", strlen("Your Turn PICK 1 or 2 coins\n"), HAL_MAX_DELAY);
     	                break;
     	            default: // multi press do nothing
     	                break;
@@ -475,7 +472,6 @@ void TikTokGame()
     	                game_left = 5; // coin left 5
     	                game_winner = 0; // no winner
     	                game_turn = 0; // human turn
-    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn PICK 1 or 2 coins\n", strlen("Your Turn PICK 1 or 2 coins\n"), HAL_MAX_DELAY);
     	                break;
     	            default: // multi press do nothing
     	                break;
@@ -503,7 +499,6 @@ void TikTokGame()
     	                game_left = 5; // coin left 5
     	                game_winner = 0; // no winner
     	                game_turn = 0; // human turn
-    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn PICK 1 or 2 coins\n", strlen("Your Turn PICK 1 or 2 coins\n"), HAL_MAX_DELAY);
     	                break;
     	            default: // multi press do nothing
     	                break;

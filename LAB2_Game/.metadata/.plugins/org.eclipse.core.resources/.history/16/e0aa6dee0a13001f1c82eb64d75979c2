@@ -115,7 +115,6 @@ int main(void)
   TikTokGame();
   LEDdisplay();
   CoinLeftUART();
-  HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn PICK 1 or 2 coins\n", strlen("Your Turn PICK 1 or 2 coins\n"), HAL_MAX_DELAY);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -419,7 +418,6 @@ void TikTokGame()
     	                game_left = 5; // coin left 5
     	                game_winner = 0; // no winner
     	                game_turn = 0; // human turn
-    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn PICK 1 or 2 coins\n", strlen("Your Turn PICK 1 or 2 coins\n"), HAL_MAX_DELAY);
     	                break;
     	            default: // multi press do nothing
     	                break;
@@ -447,7 +445,6 @@ void TikTokGame()
     	                game_left = 5; // coin left 5
     	                game_winner = 0; // no winner
     	                game_turn = 0; // human turn
-    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn PICK 1 or 2 coins\n", strlen("Your Turn PICK 1 or 2 coins\n"), HAL_MAX_DELAY);
     	                break;
     	            default: // multi press do nothing
     	                break;
@@ -475,7 +472,6 @@ void TikTokGame()
     	                game_left = 5; // coin left 5
     	                game_winner = 0; // no winner
     	                game_turn = 0; // human turn
-    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn PICK 1 or 2 coins\n", strlen("Your Turn PICK 1 or 2 coins\n"), HAL_MAX_DELAY);
     	                break;
     	            default: // multi press do nothing
     	                break;
@@ -503,7 +499,6 @@ void TikTokGame()
     	                game_left = 5; // coin left 5
     	                game_winner = 0; // no winner
     	                game_turn = 0; // human turn
-    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn PICK 1 or 2 coins\n", strlen("Your Turn PICK 1 or 2 coins\n"), HAL_MAX_DELAY);
     	                break;
     	            default: // multi press do nothing
     	                break;
@@ -542,7 +537,6 @@ void TikTokGame()
                 break;
         }
         game_turn = 0;
-        HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn PICK 1 or 2 coins\n", strlen("Your Turn PICK 1 or 2 coins\n"), HAL_MAX_DELAY);
     }
     HAL_Delay(200);//delay
 }
@@ -556,11 +550,11 @@ void LEDdisplay() {
 	        case 1:
 	            // AI wins
 	        	//light effect
-//	        	HAL_GPIO_WritePin(GPIOD, GPIO_PIN_2, 0); // CS Select
-//	        	SPITx[0] = 0b01000000;
-//	        	SPITx[1] = 0x01;
-//	        	SPITx[2] = 0b00111111;
-//	        	HAL_SPI_TransmitReceive_IT(&hspi3, SPITx, SPIRx, 3);
+	        	HAL_GPIO_WritePin(GPIOD, GPIO_PIN_2, 0); // CS Select
+	        	SPITx[0] = 0b01000000;
+	        	SPITx[1] = 0x01;
+	        	SPITx[2] = 0b00111111;
+	        	HAL_SPI_TransmitReceive_IT(&hspi3, SPITx, SPIRx, 3);
 	        	//reset after light
                 game_pick = 0; // no pick
                 game_left = 5; // coin left 5
