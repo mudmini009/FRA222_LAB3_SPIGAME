@@ -1,4 +1,4 @@
-06:29:12 **** Incremental Build of configuration Debug for project LAB3_Game ****
+06:37:37 **** Incremental Build of configuration Debug for project LAB3_Game ****
 make -j16 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
 ../Core/Src/main.c: In function 'main':
@@ -36,14 +36,14 @@ arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -D
 ../Core/Src/main.c:139:15: note: previous implicit declaration of 'TikTokGame' with type 'void()'
   139 |               TikTokGame();
       |               ^~~~~~~~~~
-../Core/Src/main.c:582:6: warning: conflicting types for 'LEDdisplay'; have 'void()'
-  582 | void LEDdisplay() {
+../Core/Src/main.c:598:6: warning: conflicting types for 'LEDdisplay'; have 'void()'
+  598 | void LEDdisplay() {
       |      ^~~~~~~~~~
 ../Core/Src/main.c:141:15: note: previous implicit declaration of 'LEDdisplay' with type 'void()'
   141 |               LEDdisplay();
       |               ^~~~~~~~~~
-../Core/Src/main.c:620:6: warning: conflicting types for 'CoinLeftUART'; have 'void()'
-  620 | void CoinLeftUART() {
+../Core/Src/main.c:636:6: warning: conflicting types for 'CoinLeftUART'; have 'void()'
+  636 | void CoinLeftUART() {
       |      ^~~~~~~~~~~~
 ../Core/Src/main.c:140:15: note: previous implicit declaration of 'CoinLeftUART' with type 'void()'
   140 |               CoinLeftUART();
@@ -54,11 +54,11 @@ Finished building target: LAB3_Game.elf
 arm-none-eabi-size   LAB3_Game.elf 
 arm-none-eabi-objdump -h -S  LAB3_Game.elf  > "LAB3_Game.list"
    text	   data	    bss	    dec	    hex	filename
-  22396	    104	   2296	  24796	   60dc	LAB3_Game.elf
+  22772	    104	   2296	  25172	   6254	LAB3_Game.elf
 Finished building: default.size.stdout
  
 Finished building: LAB3_Game.list
  
 
-06:29:13 Build Finished. 0 errors, 10 warnings. (took 907ms)
+06:37:38 Build Finished. 0 errors, 10 warnings. (took 911ms)
 

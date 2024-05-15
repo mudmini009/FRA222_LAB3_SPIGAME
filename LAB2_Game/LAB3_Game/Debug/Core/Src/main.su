@@ -8,8 +8,8 @@
 ../Core/Src/main.c:400:6:SPITxRx_Setup	8	static
 ../Core/Src/main.c:409:6:SPITxRx_readIO	8	static
 ../Core/Src/main.c:422:6:TikTokGame	8	static
-../Core/Src/main.c:582:6:LEDdisplay	8	static
-../Core/Src/main.c:620:6:CoinLeftUART	40	static
-../Core/Src/main.c:625:6:HAL_TIM_PeriodElapsedCallback	16	static
-../Core/Src/main.c:638:6:HAL_SPI_TxRxCpltCallback	16	static
-../Core/Src/main.c:648:6:Error_Handler	4	static,ignoring_inline_asm
+../Core/Src/main.c:598:6:LEDdisplay	8	static
+../Core/Src/main.c:636:6:CoinLeftUART	40	static
+../Core/Src/main.c:641:6:HAL_TIM_PeriodElapsedCallback	16	static
+../Core/Src/main.c:654:6:HAL_SPI_TxRxCpltCallback	16	static
+../Core/Src/main.c:664:6:Error_Handler	4	static,ignoring_inline_asm

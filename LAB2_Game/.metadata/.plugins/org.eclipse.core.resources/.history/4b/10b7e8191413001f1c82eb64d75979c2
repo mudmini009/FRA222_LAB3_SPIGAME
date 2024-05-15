@@ -116,7 +116,7 @@ int main(void)
   MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
   HAL_TIM_Base_Start(&htim3); // start timer
-    HAL_UART_Transmit(&hlpuart1, (uint8_t *)"\nThis game you need to PICK 1 or 2 coins VS our AI(just BOT)\n", strlen("\nThis game you need to PICK 1 or 2 coins VS our AI(just BOT)\n"), HAL_MAX_DELAY);
+    HAL_UART_Transmit(&hlpuart1, (uint8_t *)"This game you need to PICK 1 or 2 coins VS our AI(just BOT)\n", strlen("This game you need to PICK 1 or 2 coins VS our AI(just BOT)\n"), HAL_MAX_DELAY);
     HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Who pick the last coin Win!!\n", strlen("Who pick the last coin Win!!\n"), HAL_MAX_DELAY);
     HAL_UART_Transmit(&hlpuart1, (uint8_t *)"If you're ready please type\n", strlen("If you're ready please type\n"), HAL_MAX_DELAY);
     HAL_UART_Transmit(&hlpuart1, (uint8_t *)"wanna play this game so bad\n", strlen("wanna play this game so bad\n"), HAL_MAX_DELAY);
@@ -437,14 +437,12 @@ void TikTokGame()
     	                game_left = 4; // coin left 4
     	                game_winner = 0; // no winner
     	                game_turn = 1; // next is ai turn
-    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"You pick 1\n", strlen("You pick 1\n"), HAL_MAX_DELAY);
     	                break;
     	            case 5: // Button 2 press pick 2
     	                game_pick = 2; // pick2
     	                game_left = 3; // coin left 3
     	                game_winner = 0; // no winner
     	                game_turn = 1; // next is ai turn
-    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"You pick 2\n", strlen("You pick 2\n"), HAL_MAX_DELAY);
     	                break;
     	            case 7: // Button not press let it loop
     	                break;
@@ -453,7 +451,6 @@ void TikTokGame()
     	                game_left = 5; // coin left 5
     	                game_winner = 0; // no winner
     	                game_turn = 0; // human turn
-    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Loser gonna keep restart\n", strlen("Loser gonna keep restart\n"), HAL_MAX_DELAY);
     	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn PICK 1 or 2 coins\n", strlen("Your Turn PICK 1 or 2 coins\n"), HAL_MAX_DELAY);
     	                break;
     	            default: // multi press do nothing
@@ -468,14 +465,12 @@ void TikTokGame()
     	                game_left = 2; // coin left 2
     	                game_winner = 0; // no winner
     	                game_turn = 1; // next is ai turn
-    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"You pick 1\n", strlen("You pick 1\n"), HAL_MAX_DELAY);
     	                break;
     	            case 5: // Button 2 press pick 2
     	                game_pick = 2; // pick2
     	                game_left = 1; // coin left 1
     	                game_winner = 0; // no winner
     	                game_turn = 1; // next is ai turn
-    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"You pick 2\n", strlen("You pick 2\n"), HAL_MAX_DELAY);
     	                break;
     	            case 7: // Button not press let it loop
     	                break;
@@ -484,7 +479,6 @@ void TikTokGame()
     	                game_left = 5; // coin left 5
     	                game_winner = 0; // no winner
     	                game_turn = 0; // human turn
-    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Loser gonna keep restart\n", strlen("Loser gonna keep restart\n"), HAL_MAX_DELAY);
     	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn PICK 1 or 2 coins\n", strlen("Your Turn PICK 1 or 2 coins\n"), HAL_MAX_DELAY);
     	                break;
     	            default: // multi press do nothing
@@ -499,14 +493,12 @@ void TikTokGame()
     	                game_left = 1; // coin left 1
     	                game_winner = 0; // no winner
     	                game_turn = 1; // next is ai turn
-    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"You pick 1\n", strlen("You pick 1\n"), HAL_MAX_DELAY);
     	                break;
     	            case 5: // Button 2 press pick 2
     	                game_pick = 2; // pick2
     	                game_left = 0; // coin left 1
     	                game_winner = 2; // human winner
     	                game_turn = 0; // reset to human
-    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"You pick 2\n", strlen("You pick 2\n"), HAL_MAX_DELAY);
     	                break;
     	            case 7: // Button not press let it loop
     	                break;
@@ -515,7 +507,6 @@ void TikTokGame()
     	                game_left = 5; // coin left 5
     	                game_winner = 0; // no winner
     	                game_turn = 0; // human turn
-    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Loser gonna keep restart\n", strlen("Loser gonna keep restart\n"), HAL_MAX_DELAY);
     	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn PICK 1 or 2 coins\n", strlen("Your Turn PICK 1 or 2 coins\n"), HAL_MAX_DELAY);
     	                break;
     	            default: // multi press do nothing
@@ -530,14 +521,12 @@ void TikTokGame()
     	                game_left = 0; // coin left 0
     	                game_winner = 2; // human winner
     	                game_turn = 0; // reset to human
-    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"You pick 1\n", strlen("You pick 1\n"), HAL_MAX_DELAY);
     	                break;
     	            case 5: // Button 2 press pick 2
     	                game_pick = 1; // force to pick1
     	                game_left = 0; // coin left 1
     	                game_winner = 2; // human winner
     	                game_turn = 0; // reset to human
-    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Are you blind? I gonna let you pick 1\n", strlen("Are you blind? I gonna let you pick 1\n"), HAL_MAX_DELAY);
     	                break;
     	            case 7: // Button not press let it loop
     	                break;
@@ -546,7 +535,6 @@ void TikTokGame()
     	                game_left = 5; // coin left 5
     	                game_winner = 0; // no winner
     	                game_turn = 0; // human turn
-    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Loser gonna keep restart\n", strlen("Loser gonna keep restart\n"), HAL_MAX_DELAY);
     	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn PICK 1 or 2 coins\n", strlen("Your Turn PICK 1 or 2 coins\n"), HAL_MAX_DELAY);
     	                break;
     	            default: // multi press do nothing
@@ -565,28 +553,24 @@ void TikTokGame()
                 game_pick = 1; // pick1
                 game_left = 3; // coin left 3
                 game_winner = 0; // no winner
-                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"AI pick 1\n", strlen("AI pick 1\n"), HAL_MAX_DELAY);
                 break;
             case 3:
                 // statements
                 game_pick = 1; // pick1
                 game_left = 2; // coin left 2
                 game_winner = 0; // no winner
-                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"AI pick 1\n", strlen("AI pick 1\n"), HAL_MAX_DELAY);
                 break;
             case 2:
                 // statements
                 game_pick = 2; // pick2
                 game_left = 0; // coin left 0
                 game_winner = 1; // ai winner
-                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"AI pick 2\n", strlen("AI pick 2\n"), HAL_MAX_DELAY);
                 break;
             case 1:
                 // statements
                 game_pick = 1; // pick1
                 game_left = 0; // coin left 0
                 game_winner = 1; // ai winner
-                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"AI pick 1\n", strlen("AI pick 1\n"), HAL_MAX_DELAY);
                 break;
         }
         game_turn = 0;
