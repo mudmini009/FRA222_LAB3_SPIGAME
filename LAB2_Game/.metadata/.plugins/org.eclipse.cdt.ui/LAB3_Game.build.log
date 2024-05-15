@@ -1,4 +1,4 @@
-04:53:32 **** Incremental Build of configuration Debug for project LAB3_Game ****
+05:11:04 **** Incremental Build of configuration Debug for project LAB3_Game ****
 make -j16 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
 ../Core/Src/main.c: In function 'main':
@@ -42,8 +42,8 @@ arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -D
 ../Core/Src/main.c:112:3: note: previous implicit declaration of 'LEDdisplay' with type 'void()'
   112 |   LEDdisplay();
       |   ^~~~~~~~~~
-../Core/Src/main.c:568:6: warning: conflicting types for 'CoinLeftUART'; have 'void()'
-  568 | void CoinLeftUART() {
+../Core/Src/main.c:572:6: warning: conflicting types for 'CoinLeftUART'; have 'void()'
+  572 | void CoinLeftUART() {
       |      ^~~~~~~~~~~~
 ../Core/Src/main.c:113:3: note: previous implicit declaration of 'CoinLeftUART' with type 'void()'
   113 |   CoinLeftUART();
@@ -54,11 +54,11 @@ Finished building target: LAB3_Game.elf
 arm-none-eabi-size   LAB3_Game.elf 
 arm-none-eabi-objdump -h -S  LAB3_Game.elf  > "LAB3_Game.list"
    text	   data	    bss	    dec	    hex	filename
-  21184	    104	   2264	  23552	   5c00	LAB3_Game.elf
+  21276	    104	   2264	  23644	   5c5c	LAB3_Game.elf
 Finished building: default.size.stdout
  
 Finished building: LAB3_Game.list
  
 
-04:53:33 Build Finished. 0 errors, 10 warnings. (took 960ms)
+05:11:05 Build Finished. 0 errors, 10 warnings. (took 962ms)
 

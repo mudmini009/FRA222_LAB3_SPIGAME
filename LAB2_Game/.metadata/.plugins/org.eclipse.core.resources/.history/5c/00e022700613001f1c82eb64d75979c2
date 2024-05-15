@@ -545,15 +545,12 @@ void LEDdisplay() {
 	            break;
 	        case 1:
 	            // AI wins
-	        	//light effect
-
 	        	//reset after light
                 game_pick = 0; // no pick
                 game_left = 5; // coin left 5
                 game_winner = 0; // RESET
                 game_turn = 0; // human turn
                 // Send the message over UART
-                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"AI Win!! Humanity Lost!\n", strlen("AI Win!! Humanity Lost!\n"), HAL_MAX_DELAY);
                 HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Coin left is 5. It's your turn to pick.\n", strlen("Coin left is 5. It's your turn to pick.\n"), HAL_MAX_DELAY);
 	            break;
 	        case 2:
@@ -564,7 +561,6 @@ void LEDdisplay() {
                 game_winner = 0; // RESET
                 game_turn = 0; // human turn
                 // Send the message over UART
-                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Congrats You are winning!!!\n", strlen("Congrats You are winning!!!\n"), HAL_MAX_DELAY);
                 HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Coin left is 5. It's your turn to pick.\n", strlen("Coin left is 5. It's your turn to pick.\n"), HAL_MAX_DELAY);
 	            break;
 	    }

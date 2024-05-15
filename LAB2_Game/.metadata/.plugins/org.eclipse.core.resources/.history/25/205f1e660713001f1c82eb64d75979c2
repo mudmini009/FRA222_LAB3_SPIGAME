@@ -546,14 +546,45 @@ void LEDdisplay() {
 	        case 1:
 	            // AI wins
 	        	//light effect
+	        	 for (int i = 0; i < 2; i++) {
+//	             HAL_GPIO_WritePin(GPIOD, GPIO_PIN_2, 0); // CS Select
+//	        	 SPITx[0] = 0b01000000; // write command
+//	        	 SPITx[1] = 0x15;       // OLATB register address
+//	        	 SPITx[2] = 0b11111111; // set all LEDs on
+//	        	 HAL_SPI_TransmitReceive_IT(&hspi3, SPITx, SPIRx, 3);
+//	        	 HAL_Delay(200); // Delay for 500ms
+//	        	 HAL_GPIO_WritePin(GPIOD, GPIO_PIN_2, 0); // CS Select
+//	        	 SPITx[0] = 0b01000000; // write command
+//	        	 SPITx[1] = 0x15;       // OLATB register address
+//	        	 SPITx[2] = 0b00000000; // set all LEDs off
+//	        	 HAL_SPI_TransmitReceive_IT(&hspi3, SPITx, SPIRx, 3);
+//	        	 HAL_Delay(200); // Delay for 500ms
+	        		 if(HAL_GPIO_ReadPin(GPIOD,GPIO_PIN_2))
+	        		     {
+	        		         HAL_GPIO_WritePin(GPIOD, GPIO_PIN_2, 0); // CS Select
+	        		         SPI_TX[0] = 0b01000001;
+	        		         SPI_TX[1] = 0x12;
+	        		         SPI_TX[2] = 0x00;
+	        		         HAL_SPI_TransmitReceive_IT(&hspi3, SPI_TX, Rx_Button, 3);
+	        		         Convert_HC_35_2_Number();
+	        		         SET_LIGHT_B();
 
+	        		         HAL_Delay(1);
+
+	        		         HAL_GPIO_WritePin(GPIOD, GPIO_PIN_2, 0); // CS Select
+	        		         SPI_TX[0] = 0b01000000;
+	        		         SPI_TX[1] = 0x01;
+	        		         SPI_TX[2] = 0b00111111;
+	        		         HAL_SPI_TransmitReceive_IT(&hspi3, SPI_TX, SPI_RX, 3);
+
+	        		     }
+	        	 }
 	        	//reset after light
                 game_pick = 0; // no pick
                 game_left = 5; // coin left 5
                 game_winner = 0; // RESET
                 game_turn = 0; // human turn
                 // Send the message over UART
-                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"AI Win!! Humanity Lost!\n", strlen("AI Win!! Humanity Lost!\n"), HAL_MAX_DELAY);
                 HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Coin left is 5. It's your turn to pick.\n", strlen("Coin left is 5. It's your turn to pick.\n"), HAL_MAX_DELAY);
 	            break;
 	        case 2:
@@ -564,7 +595,6 @@ void LEDdisplay() {
                 game_winner = 0; // RESET
                 game_turn = 0; // human turn
                 // Send the message over UART
-                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Congrats You are winning!!!\n", strlen("Congrats You are winning!!!\n"), HAL_MAX_DELAY);
                 HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Coin left is 5. It's your turn to pick.\n", strlen("Coin left is 5. It's your turn to pick.\n"), HAL_MAX_DELAY);
 	            break;
 	    }
