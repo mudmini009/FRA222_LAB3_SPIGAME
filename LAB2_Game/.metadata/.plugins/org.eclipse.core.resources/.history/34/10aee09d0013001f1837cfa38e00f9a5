@@ -110,8 +110,8 @@ int main(void)
   TikTokGame();
   LEDdisplay();
   CoinLeftUART();
-  uint8_t text[] = "HELLO FIBO"; // Define the text message to send
-  HAL_UART_Transmit(&hlpuart1, text , 11, 10);
+  char text[] = "Hello everyone!\n"; // Define the text message to send
+  HAL_UART_Transmit(&hlpuart1, (uint8_t *)text, strlen(text), HAL_MAX_DELAY);
   /* USER CODE END 2 */
 
   /* Infinite loop */

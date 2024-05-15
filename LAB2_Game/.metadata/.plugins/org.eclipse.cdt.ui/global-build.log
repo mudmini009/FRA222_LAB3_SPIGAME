@@ -2145,3 +2145,777 @@ Finished building: default.size.stdout
  
 Finished building: LAB3_Game.list
  
+03:56:21 **** Incremental Build of configuration Debug for project LAB3_Game ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32g4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32g4xx_hal_msp.d" -MT"Core/Src/stm32g4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32g4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32g4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32g4xx_it.d" -MT"Core/Src/stm32g4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32g4xx_it.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:109:3: warning: implicit declaration of function 'SPITxRx_Setup' [-Wimplicit-function-declaration]
+  109 |   SPITxRx_Setup();
+      |   ^~~~~~~~~~~~~
+../Core/Src/main.c:110:3: warning: implicit declaration of function 'TikTokGame' [-Wimplicit-function-declaration]
+  110 |   TikTokGame();
+      |   ^~~~~~~~~~
+../Core/Src/main.c:111:3: warning: implicit declaration of function 'LEDdisplay' [-Wimplicit-function-declaration]
+  111 |   LEDdisplay();
+      |   ^~~~~~~~~~
+../Core/Src/main.c:112:3: warning: implicit declaration of function 'CoinLeftUART' [-Wimplicit-function-declaration]
+  112 |   CoinLeftUART(int coin_left);
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c:112:16: error: expected expression before 'int'
+  112 |   CoinLeftUART(int coin_left);
+      |                ^~~
+../Core/Src/main.c:122:11: warning: implicit declaration of function 'SPITxRx_readIO' [-Wimplicit-function-declaration]
+  122 |           SPITxRx_readIO();
+      |           ^~~~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:362:6: warning: conflicting types for 'SPITxRx_Setup'; have 'void()'
+  362 | void SPITxRx_Setup()
+      |      ^~~~~~~~~~~~~
+../Core/Src/main.c:109:3: note: previous implicit declaration of 'SPITxRx_Setup' with type 'void()'
+  109 |   SPITxRx_Setup();
+      |   ^~~~~~~~~~~~~
+../Core/Src/main.c:371:6: warning: conflicting types for 'SPITxRx_readIO'; have 'void()'
+  371 | void SPITxRx_readIO()
+      |      ^~~~~~~~~~~~~~
+../Core/Src/main.c:122:11: note: previous implicit declaration of 'SPITxRx_readIO' with type 'void()'
+  122 |           SPITxRx_readIO();
+      |           ^~~~~~~~~~~~~~
+../Core/Src/main.c:384:6: warning: conflicting types for 'TikTokGame'; have 'void()'
+  384 | void TikTokGame()
+      |      ^~~~~~~~~~
+../Core/Src/main.c:110:3: note: previous implicit declaration of 'TikTokGame' with type 'void()'
+  110 |   TikTokGame();
+      |   ^~~~~~~~~~
+../Core/Src/main.c:539:6: warning: conflicting types for 'LEDdisplay'; have 'void()'
+  539 | void LEDdisplay() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:111:3: note: previous implicit declaration of 'LEDdisplay' with type 'void()'
+  111 |   LEDdisplay();
+      |   ^~~~~~~~~~
+../Core/Src/main.c:563:6: warning: conflicting types for 'CoinLeftUART'; have 'void(int)'
+  563 | void CoinLeftUART(int coin_left) {
+      |      ^~~~~~~~~~~~
+../Core/Src/main.c:112:3: note: previous implicit declaration of 'CoinLeftUART' with type 'void(int)'
+  112 |   CoinLeftUART(int coin_left);
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c: In function 'CoinLeftUART':
+../Core/Src/main.c:565:5: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  565 |     sprintf(coin_left_message, "Coin left is %d\n", coin_left);
+      |     ^~~~~~~
+../Core/Src/main.c:21:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   20 | #include "main.h"
+  +++ |+#include <stdio.h>
+   21 | 
+../Core/Src/main.c:565:5: warning: incompatible implicit declaration of built-in function 'sprintf' [-Wbuiltin-declaration-mismatch]
+  565 |     sprintf(coin_left_message, "Coin left is %d\n", coin_left);
+      |     ^~~~~~~
+../Core/Src/main.c:565:5: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+../Core/Src/main.c:566:64: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  566 |     HAL_UART_Transmit(&hlpuart1, (uint8_t *)coin_left_message, strlen(coin_left_message), HAL_MAX_DELAY);
+      |                                                                ^~~~~~
+../Core/Src/main.c:21:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   20 | #include "main.h"
+  +++ |+#include <string.h>
+   21 | 
+../Core/Src/main.c:566:64: warning: incompatible implicit declaration of built-in function 'strlen' [-Wbuiltin-declaration-mismatch]
+  566 |     HAL_UART_Transmit(&hlpuart1, (uint8_t *)coin_left_message, strlen(coin_left_message), HAL_MAX_DELAY);
+      |                                                                ^~~~~~
+../Core/Src/main.c:566:64: note: include '<string.h>' or provide a declaration of 'strlen'
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+03:56:38 **** Incremental Build of configuration Debug for project LAB3_Game ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:109:3: warning: implicit declaration of function 'SPITxRx_Setup' [-Wimplicit-function-declaration]
+  109 |   SPITxRx_Setup();
+      |   ^~~~~~~~~~~~~
+../Core/Src/main.c:110:3: warning: implicit declaration of function 'TikTokGame' [-Wimplicit-function-declaration]
+  110 |   TikTokGame();
+      |   ^~~~~~~~~~
+../Core/Src/main.c:111:3: warning: implicit declaration of function 'LEDdisplay' [-Wimplicit-function-declaration]
+  111 |   LEDdisplay();
+      |   ^~~~~~~~~~
+../Core/Src/main.c:112:3: warning: implicit declaration of function 'CoinLeftUART' [-Wimplicit-function-declaration]
+  112 |   CoinLeftUART();
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c:122:11: warning: implicit declaration of function 'SPITxRx_readIO' [-Wimplicit-function-declaration]
+  122 |           SPITxRx_readIO();
+      |           ^~~~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:362:6: warning: conflicting types for 'SPITxRx_Setup'; have 'void()'
+  362 | void SPITxRx_Setup()
+      |      ^~~~~~~~~~~~~
+../Core/Src/main.c:109:3: note: previous implicit declaration of 'SPITxRx_Setup' with type 'void()'
+  109 |   SPITxRx_Setup();
+      |   ^~~~~~~~~~~~~
+../Core/Src/main.c:371:6: warning: conflicting types for 'SPITxRx_readIO'; have 'void()'
+  371 | void SPITxRx_readIO()
+      |      ^~~~~~~~~~~~~~
+../Core/Src/main.c:122:11: note: previous implicit declaration of 'SPITxRx_readIO' with type 'void()'
+  122 |           SPITxRx_readIO();
+      |           ^~~~~~~~~~~~~~
+../Core/Src/main.c:384:6: warning: conflicting types for 'TikTokGame'; have 'void()'
+  384 | void TikTokGame()
+      |      ^~~~~~~~~~
+../Core/Src/main.c:110:3: note: previous implicit declaration of 'TikTokGame' with type 'void()'
+  110 |   TikTokGame();
+      |   ^~~~~~~~~~
+../Core/Src/main.c:539:6: warning: conflicting types for 'LEDdisplay'; have 'void()'
+  539 | void LEDdisplay() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:111:3: note: previous implicit declaration of 'LEDdisplay' with type 'void()'
+  111 |   LEDdisplay();
+      |   ^~~~~~~~~~
+../Core/Src/main.c:563:6: warning: conflicting types for 'CoinLeftUART'; have 'void(int)'
+  563 | void CoinLeftUART(int coin_left) {
+      |      ^~~~~~~~~~~~
+../Core/Src/main.c:112:3: note: previous implicit declaration of 'CoinLeftUART' with type 'void(int)'
+  112 |   CoinLeftUART();
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c: In function 'CoinLeftUART':
+../Core/Src/main.c:565:5: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  565 |     sprintf(coin_left_message, "Coin left is %d\n", coin_left);
+      |     ^~~~~~~
+../Core/Src/main.c:21:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   20 | #include "main.h"
+  +++ |+#include <stdio.h>
+   21 | 
+../Core/Src/main.c:565:5: warning: incompatible implicit declaration of built-in function 'sprintf' [-Wbuiltin-declaration-mismatch]
+  565 |     sprintf(coin_left_message, "Coin left is %d\n", coin_left);
+      |     ^~~~~~~
+../Core/Src/main.c:565:5: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+../Core/Src/main.c:566:64: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  566 |     HAL_UART_Transmit(&hlpuart1, (uint8_t *)coin_left_message, strlen(coin_left_message), HAL_MAX_DELAY);
+      |                                                                ^~~~~~
+../Core/Src/main.c:21:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   20 | #include "main.h"
+  +++ |+#include <string.h>
+   21 | 
+../Core/Src/main.c:566:64: warning: incompatible implicit declaration of built-in function 'strlen' [-Wbuiltin-declaration-mismatch]
+  566 |     HAL_UART_Transmit(&hlpuart1, (uint8_t *)coin_left_message, strlen(coin_left_message), HAL_MAX_DELAY);
+      |                                                                ^~~~~~
+../Core/Src/main.c:566:64: note: include '<string.h>' or provide a declaration of 'strlen'
+arm-none-eabi-gcc -o "LAB3_Game.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\UNIVERSITY\YR2\FRA222_MicroCon\FRA222_LAB3_SPIGAME\LAB2_Game\LAB3_Game\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LAB3_Game.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LAB3_Game.elf
+ 
+arm-none-eabi-size   LAB3_Game.elf 
+arm-none-eabi-objdump -h -S  LAB3_Game.elf  > "LAB3_Game.list"
+   text	   data	    bss	    dec	    hex	filename
+  23208	    104	   2264	  25576	   63e8	LAB3_Game.elf
+Finished building: default.size.stdout
+ 
+Finished building: LAB3_Game.list
+ 
+03:59:12 **** Incremental Build of configuration Debug for project LAB3_Game ****
+make -j16 all 
+arm-none-eabi-size   LAB3_Game.elf 
+   text	   data	    bss	    dec	    hex	filename
+  23208	    104	   2264	  25576	   63e8	LAB3_Game.elf
+Finished building: default.size.stdout
+ 
+04:03:09 **** Incremental Build of configuration Debug for project LAB3_Game ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:109:3: warning: implicit declaration of function 'SPITxRx_Setup' [-Wimplicit-function-declaration]
+  109 |   SPITxRx_Setup();
+      |   ^~~~~~~~~~~~~
+../Core/Src/main.c:110:3: warning: implicit declaration of function 'TikTokGame' [-Wimplicit-function-declaration]
+  110 |   TikTokGame();
+      |   ^~~~~~~~~~
+../Core/Src/main.c:111:3: warning: implicit declaration of function 'LEDdisplay' [-Wimplicit-function-declaration]
+  111 |   LEDdisplay();
+      |   ^~~~~~~~~~
+../Core/Src/main.c:112:3: warning: implicit declaration of function 'CoinLeftUART' [-Wimplicit-function-declaration]
+  112 |   CoinLeftUART();
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c:113:3: error: unknown type name 'uint8t_t'; did you mean 'uint8_t'?
+  113 |   uint8t_t text[]="HELLO FIBO";
+      |   ^~~~~~~~
+      |   uint8_t
+../Core/Src/main.c:113:19: error: array of inappropriate type initialized from string constant
+  113 |   uint8t_t text[]="HELLO FIBO";
+      |                   ^~~~~~~~~~~~
+../Core/Src/main.c:114:22: error: 'huart2' undeclared (first use in this function); did you mean 'hlpuart1'?
+  114 |   HAL_UART_Transmit(&huart2,text,11,10);//11 is size text and 10 is time out
+      |                      ^~~~~~
+      |                      hlpuart1
+../Core/Src/main.c:114:22: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:114:29: warning: passing argument 2 of 'HAL_UART_Transmit' from incompatible pointer type [-Wincompatible-pointer-types]
+  114 |   HAL_UART_Transmit(&huart2,text,11,10);//11 is size text and 10 is time out
+      |                             ^~~~
+      |                             |
+      |                             int *
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:348,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h:1634:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'int *'
+ 1634 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:124:11: warning: implicit declaration of function 'SPITxRx_readIO' [-Wimplicit-function-declaration]
+  124 |           SPITxRx_readIO();
+      |           ^~~~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:364:6: warning: conflicting types for 'SPITxRx_Setup'; have 'void()'
+  364 | void SPITxRx_Setup()
+      |      ^~~~~~~~~~~~~
+../Core/Src/main.c:109:3: note: previous implicit declaration of 'SPITxRx_Setup' with type 'void()'
+  109 |   SPITxRx_Setup();
+      |   ^~~~~~~~~~~~~
+../Core/Src/main.c:373:6: warning: conflicting types for 'SPITxRx_readIO'; have 'void()'
+  373 | void SPITxRx_readIO()
+      |      ^~~~~~~~~~~~~~
+../Core/Src/main.c:124:11: note: previous implicit declaration of 'SPITxRx_readIO' with type 'void()'
+  124 |           SPITxRx_readIO();
+      |           ^~~~~~~~~~~~~~
+../Core/Src/main.c:386:6: warning: conflicting types for 'TikTokGame'; have 'void()'
+  386 | void TikTokGame()
+      |      ^~~~~~~~~~
+../Core/Src/main.c:110:3: note: previous implicit declaration of 'TikTokGame' with type 'void()'
+  110 |   TikTokGame();
+      |   ^~~~~~~~~~
+../Core/Src/main.c:541:6: warning: conflicting types for 'LEDdisplay'; have 'void()'
+  541 | void LEDdisplay() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:111:3: note: previous implicit declaration of 'LEDdisplay' with type 'void()'
+  111 |   LEDdisplay();
+      |   ^~~~~~~~~~
+../Core/Src/main.c:565:6: warning: conflicting types for 'CoinLeftUART'; have 'void(int)'
+  565 | void CoinLeftUART(int coin_left) {
+      |      ^~~~~~~~~~~~
+../Core/Src/main.c:112:3: note: previous implicit declaration of 'CoinLeftUART' with type 'void(int)'
+  112 |   CoinLeftUART();
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c: In function 'CoinLeftUART':
+../Core/Src/main.c:567:5: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  567 |     sprintf(coin_left_message, "Coin left is %d\n", coin_left);
+      |     ^~~~~~~
+../Core/Src/main.c:21:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   20 | #include "main.h"
+  +++ |+#include <stdio.h>
+   21 | 
+../Core/Src/main.c:567:5: warning: incompatible implicit declaration of built-in function 'sprintf' [-Wbuiltin-declaration-mismatch]
+  567 |     sprintf(coin_left_message, "Coin left is %d\n", coin_left);
+      |     ^~~~~~~
+../Core/Src/main.c:567:5: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+../Core/Src/main.c:568:64: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  568 |     HAL_UART_Transmit(&hlpuart1, (uint8_t *)coin_left_message, strlen(coin_left_message), HAL_MAX_DELAY);
+      |                                                                ^~~~~~
+../Core/Src/main.c:21:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   20 | #include "main.h"
+  +++ |+#include <string.h>
+   21 | 
+../Core/Src/main.c:568:64: warning: incompatible implicit declaration of built-in function 'strlen' [-Wbuiltin-declaration-mismatch]
+  568 |     HAL_UART_Transmit(&hlpuart1, (uint8_t *)coin_left_message, strlen(coin_left_message), HAL_MAX_DELAY);
+      |                                                                ^~~~~~
+../Core/Src/main.c:568:64: note: include '<string.h>' or provide a declaration of 'strlen'
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+04:03:33 **** Incremental Build of configuration Debug for project LAB3_Game ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:109:3: warning: implicit declaration of function 'SPITxRx_Setup' [-Wimplicit-function-declaration]
+  109 |   SPITxRx_Setup();
+      |   ^~~~~~~~~~~~~
+../Core/Src/main.c:110:3: warning: implicit declaration of function 'TikTokGame' [-Wimplicit-function-declaration]
+  110 |   TikTokGame();
+      |   ^~~~~~~~~~
+../Core/Src/main.c:111:3: warning: implicit declaration of function 'LEDdisplay' [-Wimplicit-function-declaration]
+  111 |   LEDdisplay();
+      |   ^~~~~~~~~~
+../Core/Src/main.c:112:3: warning: implicit declaration of function 'CoinLeftUART' [-Wimplicit-function-declaration]
+  112 |   CoinLeftUART();
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c:114:22: error: 'huart2' undeclared (first use in this function); did you mean 'hlpuart1'?
+  114 |   HAL_UART_Transmit(&huart2,text,11,10);//11 is size text and 10 is time out
+      |                      ^~~~~~
+      |                      hlpuart1
+../Core/Src/main.c:114:22: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:124:11: warning: implicit declaration of function 'SPITxRx_readIO' [-Wimplicit-function-declaration]
+  124 |           SPITxRx_readIO();
+      |           ^~~~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:364:6: warning: conflicting types for 'SPITxRx_Setup'; have 'void()'
+  364 | void SPITxRx_Setup()
+      |      ^~~~~~~~~~~~~
+../Core/Src/main.c:109:3: note: previous implicit declaration of 'SPITxRx_Setup' with type 'void()'
+  109 |   SPITxRx_Setup();
+      |   ^~~~~~~~~~~~~
+../Core/Src/main.c:373:6: warning: conflicting types for 'SPITxRx_readIO'; have 'void()'
+  373 | void SPITxRx_readIO()
+      |      ^~~~~~~~~~~~~~
+../Core/Src/main.c:124:11: note: previous implicit declaration of 'SPITxRx_readIO' with type 'void()'
+  124 |           SPITxRx_readIO();
+      |           ^~~~~~~~~~~~~~
+../Core/Src/main.c:386:6: warning: conflicting types for 'TikTokGame'; have 'void()'
+  386 | void TikTokGame()
+      |      ^~~~~~~~~~
+../Core/Src/main.c:110:3: note: previous implicit declaration of 'TikTokGame' with type 'void()'
+  110 |   TikTokGame();
+      |   ^~~~~~~~~~
+../Core/Src/main.c:541:6: warning: conflicting types for 'LEDdisplay'; have 'void()'
+  541 | void LEDdisplay() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:111:3: note: previous implicit declaration of 'LEDdisplay' with type 'void()'
+  111 |   LEDdisplay();
+      |   ^~~~~~~~~~
+../Core/Src/main.c:565:6: warning: conflicting types for 'CoinLeftUART'; have 'void(int)'
+  565 | void CoinLeftUART(int coin_left) {
+      |      ^~~~~~~~~~~~
+../Core/Src/main.c:112:3: note: previous implicit declaration of 'CoinLeftUART' with type 'void(int)'
+  112 |   CoinLeftUART();
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c: In function 'CoinLeftUART':
+../Core/Src/main.c:567:5: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  567 |     sprintf(coin_left_message, "Coin left is %d\n", coin_left);
+      |     ^~~~~~~
+../Core/Src/main.c:21:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   20 | #include "main.h"
+  +++ |+#include <stdio.h>
+   21 | 
+../Core/Src/main.c:567:5: warning: incompatible implicit declaration of built-in function 'sprintf' [-Wbuiltin-declaration-mismatch]
+  567 |     sprintf(coin_left_message, "Coin left is %d\n", coin_left);
+      |     ^~~~~~~
+../Core/Src/main.c:567:5: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+../Core/Src/main.c:568:64: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  568 |     HAL_UART_Transmit(&hlpuart1, (uint8_t *)coin_left_message, strlen(coin_left_message), HAL_MAX_DELAY);
+      |                                                                ^~~~~~
+../Core/Src/main.c:21:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   20 | #include "main.h"
+  +++ |+#include <string.h>
+   21 | 
+../Core/Src/main.c:568:64: warning: incompatible implicit declaration of built-in function 'strlen' [-Wbuiltin-declaration-mismatch]
+  568 |     HAL_UART_Transmit(&hlpuart1, (uint8_t *)coin_left_message, strlen(coin_left_message), HAL_MAX_DELAY);
+      |                                                                ^~~~~~
+../Core/Src/main.c:568:64: note: include '<string.h>' or provide a declaration of 'strlen'
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+04:04:38 **** Incremental Build of configuration Debug for project LAB3_Game ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:110:3: warning: implicit declaration of function 'SPITxRx_Setup' [-Wimplicit-function-declaration]
+  110 |   SPITxRx_Setup();
+      |   ^~~~~~~~~~~~~
+../Core/Src/main.c:111:3: warning: implicit declaration of function 'TikTokGame' [-Wimplicit-function-declaration]
+  111 |   TikTokGame();
+      |   ^~~~~~~~~~
+../Core/Src/main.c:112:3: warning: implicit declaration of function 'LEDdisplay' [-Wimplicit-function-declaration]
+  112 |   LEDdisplay();
+      |   ^~~~~~~~~~
+../Core/Src/main.c:113:3: warning: implicit declaration of function 'CoinLeftUART' [-Wimplicit-function-declaration]
+  113 |   CoinLeftUART();
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c:115:22: error: 'huart2' undeclared (first use in this function); did you mean 'hlpuart1'?
+  115 |   HAL_UART_Transmit(&huart2, text , 11,1 0);//11 is size text and 10 is time out
+      |                      ^~~~~~
+      |                      hlpuart1
+../Core/Src/main.c:115:22: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:115:41: error: expected ')' before numeric constant
+  115 |   HAL_UART_Transmit(&huart2, text , 11,1 0);//11 is size text and 10 is time out
+      |                    ~                    ^~
+      |                                         )
+../Core/Src/main.c:125:11: warning: implicit declaration of function 'SPITxRx_readIO' [-Wimplicit-function-declaration]
+  125 |           SPITxRx_readIO();
+      |           ^~~~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:365:6: warning: conflicting types for 'SPITxRx_Setup'; have 'void()'
+  365 | void SPITxRx_Setup()
+      |      ^~~~~~~~~~~~~
+../Core/Src/main.c:110:3: note: previous implicit declaration of 'SPITxRx_Setup' with type 'void()'
+  110 |   SPITxRx_Setup();
+      |   ^~~~~~~~~~~~~
+../Core/Src/main.c:374:6: warning: conflicting types for 'SPITxRx_readIO'; have 'void()'
+  374 | void SPITxRx_readIO()
+      |      ^~~~~~~~~~~~~~
+../Core/Src/main.c:125:11: note: previous implicit declaration of 'SPITxRx_readIO' with type 'void()'
+  125 |           SPITxRx_readIO();
+      |           ^~~~~~~~~~~~~~
+../Core/Src/main.c:387:6: warning: conflicting types for 'TikTokGame'; have 'void()'
+  387 | void TikTokGame()
+      |      ^~~~~~~~~~
+../Core/Src/main.c:111:3: note: previous implicit declaration of 'TikTokGame' with type 'void()'
+  111 |   TikTokGame();
+      |   ^~~~~~~~~~
+../Core/Src/main.c:542:6: warning: conflicting types for 'LEDdisplay'; have 'void()'
+  542 | void LEDdisplay() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:112:3: note: previous implicit declaration of 'LEDdisplay' with type 'void()'
+  112 |   LEDdisplay();
+      |   ^~~~~~~~~~
+../Core/Src/main.c:566:6: warning: conflicting types for 'CoinLeftUART'; have 'void(int)'
+  566 | void CoinLeftUART(int coin_left) {
+      |      ^~~~~~~~~~~~
+../Core/Src/main.c:113:3: note: previous implicit declaration of 'CoinLeftUART' with type 'void(int)'
+  113 |   CoinLeftUART();
+      |   ^~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+04:05:09 **** Incremental Build of configuration Debug for project LAB3_Game ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:110:3: warning: implicit declaration of function 'SPITxRx_Setup' [-Wimplicit-function-declaration]
+  110 |   SPITxRx_Setup();
+      |   ^~~~~~~~~~~~~
+../Core/Src/main.c:111:3: warning: implicit declaration of function 'TikTokGame' [-Wimplicit-function-declaration]
+  111 |   TikTokGame();
+      |   ^~~~~~~~~~
+../Core/Src/main.c:112:3: warning: implicit declaration of function 'LEDdisplay' [-Wimplicit-function-declaration]
+  112 |   LEDdisplay();
+      |   ^~~~~~~~~~
+../Core/Src/main.c:113:3: warning: implicit declaration of function 'CoinLeftUART' [-Wimplicit-function-declaration]
+  113 |   CoinLeftUART();
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c:125:11: warning: implicit declaration of function 'SPITxRx_readIO' [-Wimplicit-function-declaration]
+  125 |           SPITxRx_readIO();
+      |           ^~~~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:365:6: warning: conflicting types for 'SPITxRx_Setup'; have 'void()'
+  365 | void SPITxRx_Setup()
+      |      ^~~~~~~~~~~~~
+../Core/Src/main.c:110:3: note: previous implicit declaration of 'SPITxRx_Setup' with type 'void()'
+  110 |   SPITxRx_Setup();
+      |   ^~~~~~~~~~~~~
+../Core/Src/main.c:374:6: warning: conflicting types for 'SPITxRx_readIO'; have 'void()'
+  374 | void SPITxRx_readIO()
+      |      ^~~~~~~~~~~~~~
+../Core/Src/main.c:125:11: note: previous implicit declaration of 'SPITxRx_readIO' with type 'void()'
+  125 |           SPITxRx_readIO();
+      |           ^~~~~~~~~~~~~~
+../Core/Src/main.c:387:6: warning: conflicting types for 'TikTokGame'; have 'void()'
+  387 | void TikTokGame()
+      |      ^~~~~~~~~~
+../Core/Src/main.c:111:3: note: previous implicit declaration of 'TikTokGame' with type 'void()'
+  111 |   TikTokGame();
+      |   ^~~~~~~~~~
+../Core/Src/main.c:542:6: warning: conflicting types for 'LEDdisplay'; have 'void()'
+  542 | void LEDdisplay() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:112:3: note: previous implicit declaration of 'LEDdisplay' with type 'void()'
+  112 |   LEDdisplay();
+      |   ^~~~~~~~~~
+../Core/Src/main.c:566:6: warning: conflicting types for 'CoinLeftUART'; have 'void(int)'
+  566 | void CoinLeftUART(int coin_left) {
+      |      ^~~~~~~~~~~~
+../Core/Src/main.c:113:3: note: previous implicit declaration of 'CoinLeftUART' with type 'void(int)'
+  113 |   CoinLeftUART();
+      |   ^~~~~~~~~~~~
+arm-none-eabi-gcc -o "LAB3_Game.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\UNIVERSITY\YR2\FRA222_MicroCon\FRA222_LAB3_SPIGAME\LAB2_Game\LAB3_Game\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LAB3_Game.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LAB3_Game.elf
+ 
+arm-none-eabi-size   LAB3_Game.elf 
+arm-none-eabi-objdump -h -S  LAB3_Game.elf  > "LAB3_Game.list"
+   text	   data	    bss	    dec	    hex	filename
+  23208	    104	   2264	  25576	   63e8	LAB3_Game.elf
+Finished building: default.size.stdout
+ 
+Finished building: LAB3_Game.list
+ 
+04:06:58 **** Incremental Build of configuration Debug for project LAB3_Game ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:110:3: warning: implicit declaration of function 'SPITxRx_Setup' [-Wimplicit-function-declaration]
+  110 |   SPITxRx_Setup();
+      |   ^~~~~~~~~~~~~
+../Core/Src/main.c:111:3: warning: implicit declaration of function 'TikTokGame' [-Wimplicit-function-declaration]
+  111 |   TikTokGame();
+      |   ^~~~~~~~~~
+../Core/Src/main.c:112:3: warning: implicit declaration of function 'LEDdisplay' [-Wimplicit-function-declaration]
+  112 |   LEDdisplay();
+      |   ^~~~~~~~~~
+../Core/Src/main.c:113:3: warning: implicit declaration of function 'CoinLeftUART' [-Wimplicit-function-declaration]
+  113 |   CoinLeftUART();
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c:125:11: warning: implicit declaration of function 'SPITxRx_readIO' [-Wimplicit-function-declaration]
+  125 |           SPITxRx_readIO();
+      |           ^~~~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:365:6: warning: conflicting types for 'SPITxRx_Setup'; have 'void()'
+  365 | void SPITxRx_Setup()
+      |      ^~~~~~~~~~~~~
+../Core/Src/main.c:110:3: note: previous implicit declaration of 'SPITxRx_Setup' with type 'void()'
+  110 |   SPITxRx_Setup();
+      |   ^~~~~~~~~~~~~
+../Core/Src/main.c:374:6: warning: conflicting types for 'SPITxRx_readIO'; have 'void()'
+  374 | void SPITxRx_readIO()
+      |      ^~~~~~~~~~~~~~
+../Core/Src/main.c:125:11: note: previous implicit declaration of 'SPITxRx_readIO' with type 'void()'
+  125 |           SPITxRx_readIO();
+      |           ^~~~~~~~~~~~~~
+../Core/Src/main.c:387:6: warning: conflicting types for 'TikTokGame'; have 'void()'
+  387 | void TikTokGame()
+      |      ^~~~~~~~~~
+../Core/Src/main.c:111:3: note: previous implicit declaration of 'TikTokGame' with type 'void()'
+  111 |   TikTokGame();
+      |   ^~~~~~~~~~
+../Core/Src/main.c:542:6: warning: conflicting types for 'LEDdisplay'; have 'void()'
+  542 | void LEDdisplay() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:112:3: note: previous implicit declaration of 'LEDdisplay' with type 'void()'
+  112 |   LEDdisplay();
+      |   ^~~~~~~~~~
+../Core/Src/main.c:566:6: warning: conflicting types for 'CoinLeftUART'; have 'void()'
+  566 | void CoinLeftUART() {
+      |      ^~~~~~~~~~~~
+../Core/Src/main.c:113:3: note: previous implicit declaration of 'CoinLeftUART' with type 'void()'
+  113 |   CoinLeftUART();
+      |   ^~~~~~~~~~~~
+arm-none-eabi-gcc -o "LAB3_Game.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\UNIVERSITY\YR2\FRA222_MicroCon\FRA222_LAB3_SPIGAME\LAB2_Game\LAB3_Game\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LAB3_Game.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LAB3_Game.elf
+ 
+arm-none-eabi-size   LAB3_Game.elf 
+arm-none-eabi-objdump -h -S  LAB3_Game.elf  > "LAB3_Game.list"
+   text	   data	    bss	    dec	    hex	filename
+  23192	    104	   2264	  25560	   63d8	LAB3_Game.elf
+Finished building: default.size.stdout
+ 
+Finished building: LAB3_Game.list
+ 
+04:14:08 **** Incremental Build of configuration Debug for project LAB3_Game ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:110:3: warning: implicit declaration of function 'SPITxRx_Setup' [-Wimplicit-function-declaration]
+  110 |   SPITxRx_Setup();
+      |   ^~~~~~~~~~~~~
+../Core/Src/main.c:111:3: warning: implicit declaration of function 'TikTokGame' [-Wimplicit-function-declaration]
+  111 |   TikTokGame();
+      |   ^~~~~~~~~~
+../Core/Src/main.c:112:3: warning: implicit declaration of function 'LEDdisplay' [-Wimplicit-function-declaration]
+  112 |   LEDdisplay();
+      |   ^~~~~~~~~~
+../Core/Src/main.c:113:3: warning: implicit declaration of function 'CoinLeftUART' [-Wimplicit-function-declaration]
+  113 |   CoinLeftUART();
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c:126:11: warning: implicit declaration of function 'SPITxRx_readIO' [-Wimplicit-function-declaration]
+  126 |           SPITxRx_readIO();
+      |           ^~~~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:365:6: warning: conflicting types for 'SPITxRx_Setup'; have 'void()'
+  365 | void SPITxRx_Setup()
+      |      ^~~~~~~~~~~~~
+../Core/Src/main.c:110:3: note: previous implicit declaration of 'SPITxRx_Setup' with type 'void()'
+  110 |   SPITxRx_Setup();
+      |   ^~~~~~~~~~~~~
+../Core/Src/main.c:374:6: warning: conflicting types for 'SPITxRx_readIO'; have 'void()'
+  374 | void SPITxRx_readIO()
+      |      ^~~~~~~~~~~~~~
+../Core/Src/main.c:126:11: note: previous implicit declaration of 'SPITxRx_readIO' with type 'void()'
+  126 |           SPITxRx_readIO();
+      |           ^~~~~~~~~~~~~~
+../Core/Src/main.c:387:6: warning: conflicting types for 'TikTokGame'; have 'void()'
+  387 | void TikTokGame()
+      |      ^~~~~~~~~~
+../Core/Src/main.c:111:3: note: previous implicit declaration of 'TikTokGame' with type 'void()'
+  111 |   TikTokGame();
+      |   ^~~~~~~~~~
+../Core/Src/main.c:542:6: warning: conflicting types for 'LEDdisplay'; have 'void()'
+  542 | void LEDdisplay() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:112:3: note: previous implicit declaration of 'LEDdisplay' with type 'void()'
+  112 |   LEDdisplay();
+      |   ^~~~~~~~~~
+../Core/Src/main.c:566:6: warning: conflicting types for 'CoinLeftUART'; have 'void()'
+  566 | void CoinLeftUART() {
+      |      ^~~~~~~~~~~~
+../Core/Src/main.c:113:3: note: previous implicit declaration of 'CoinLeftUART' with type 'void()'
+  113 |   CoinLeftUART();
+      |   ^~~~~~~~~~~~
+arm-none-eabi-gcc -o "LAB3_Game.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\UNIVERSITY\YR2\FRA222_MicroCon\FRA222_LAB3_SPIGAME\LAB2_Game\LAB3_Game\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LAB3_Game.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LAB3_Game.elf
+ 
+arm-none-eabi-size   LAB3_Game.elf 
+arm-none-eabi-objdump -h -S  LAB3_Game.elf  > "LAB3_Game.list"
+   text	   data	    bss	    dec	    hex	filename
+  23260	    104	   2264	  25628	   641c	LAB3_Game.elf
+Finished building: default.size.stdout
+ 
+Finished building: LAB3_Game.list
+ 
+04:14:54 **** Incremental Build of configuration Debug for project LAB3_Game ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:109:3: warning: implicit declaration of function 'SPITxRx_Setup' [-Wimplicit-function-declaration]
+  109 |   SPITxRx_Setup();
+      |   ^~~~~~~~~~~~~
+../Core/Src/main.c:110:3: warning: implicit declaration of function 'TikTokGame' [-Wimplicit-function-declaration]
+  110 |   TikTokGame();
+      |   ^~~~~~~~~~
+../Core/Src/main.c:111:3: warning: implicit declaration of function 'LEDdisplay' [-Wimplicit-function-declaration]
+  111 |   LEDdisplay();
+      |   ^~~~~~~~~~
+../Core/Src/main.c:112:3: warning: implicit declaration of function 'CoinLeftUART' [-Wimplicit-function-declaration]
+  112 |   CoinLeftUART();
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c:114:49: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  114 |   HAL_UART_Transmit(&hlpuart1, (uint8_t *)text, strlen(text), HAL_MAX_DELAY);
+      |                                                 ^~~~~~
+../Core/Src/main.c:21:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   20 | #include "main.h"
+  +++ |+#include <string.h>
+   21 | 
+../Core/Src/main.c:114:49: warning: incompatible implicit declaration of built-in function 'strlen' [-Wbuiltin-declaration-mismatch]
+  114 |   HAL_UART_Transmit(&hlpuart1, (uint8_t *)text, strlen(text), HAL_MAX_DELAY);
+      |                                                 ^~~~~~
+../Core/Src/main.c:114:49: note: include '<string.h>' or provide a declaration of 'strlen'
+../Core/Src/main.c:125:11: warning: implicit declaration of function 'SPITxRx_readIO' [-Wimplicit-function-declaration]
+  125 |           SPITxRx_readIO();
+      |           ^~~~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:364:6: warning: conflicting types for 'SPITxRx_Setup'; have 'void()'
+  364 | void SPITxRx_Setup()
+      |      ^~~~~~~~~~~~~
+../Core/Src/main.c:109:3: note: previous implicit declaration of 'SPITxRx_Setup' with type 'void()'
+  109 |   SPITxRx_Setup();
+      |   ^~~~~~~~~~~~~
+../Core/Src/main.c:373:6: warning: conflicting types for 'SPITxRx_readIO'; have 'void()'
+  373 | void SPITxRx_readIO()
+      |      ^~~~~~~~~~~~~~
+../Core/Src/main.c:125:11: note: previous implicit declaration of 'SPITxRx_readIO' with type 'void()'
+  125 |           SPITxRx_readIO();
+      |           ^~~~~~~~~~~~~~
+../Core/Src/main.c:386:6: warning: conflicting types for 'TikTokGame'; have 'void()'
+  386 | void TikTokGame()
+      |      ^~~~~~~~~~
+../Core/Src/main.c:110:3: note: previous implicit declaration of 'TikTokGame' with type 'void()'
+  110 |   TikTokGame();
+      |   ^~~~~~~~~~
+../Core/Src/main.c:541:6: warning: conflicting types for 'LEDdisplay'; have 'void()'
+  541 | void LEDdisplay() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:111:3: note: previous implicit declaration of 'LEDdisplay' with type 'void()'
+  111 |   LEDdisplay();
+      |   ^~~~~~~~~~
+../Core/Src/main.c:565:6: warning: conflicting types for 'CoinLeftUART'; have 'void()'
+  565 | void CoinLeftUART() {
+      |      ^~~~~~~~~~~~
+../Core/Src/main.c:112:3: note: previous implicit declaration of 'CoinLeftUART' with type 'void()'
+  112 |   CoinLeftUART();
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c: In function 'CoinLeftUART':
+../Core/Src/main.c:567:5: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  567 |     sprintf(coin_left_message, "Coin left is %d\n", game_left);
+      |     ^~~~~~~
+../Core/Src/main.c:21:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   20 | #include "main.h"
+  +++ |+#include <stdio.h>
+   21 | 
+../Core/Src/main.c:567:5: warning: incompatible implicit declaration of built-in function 'sprintf' [-Wbuiltin-declaration-mismatch]
+  567 |     sprintf(coin_left_message, "Coin left is %d\n", game_left);
+      |     ^~~~~~~
+../Core/Src/main.c:567:5: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+../Core/Src/main.c:568:64: warning: incompatible implicit declaration of built-in function 'strlen' [-Wbuiltin-declaration-mismatch]
+  568 |     HAL_UART_Transmit(&hlpuart1, (uint8_t *)coin_left_message, strlen(coin_left_message), HAL_MAX_DELAY);
+      |                                                                ^~~~~~
+../Core/Src/main.c:568:64: note: include '<string.h>' or provide a declaration of 'strlen'
+arm-none-eabi-gcc -o "LAB3_Game.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\UNIVERSITY\YR2\FRA222_MicroCon\FRA222_LAB3_SPIGAME\LAB2_Game\LAB3_Game\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LAB3_Game.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LAB3_Game.elf
+ 
+arm-none-eabi-size   LAB3_Game.elf 
+arm-none-eabi-objdump -h -S  LAB3_Game.elf  > "LAB3_Game.list"
+   text	   data	    bss	    dec	    hex	filename
+  23260	    104	   2264	  25628	   641c	LAB3_Game.elf
+Finished building: default.size.stdout
+ 
+Finished building: LAB3_Game.list
+ 
+04:18:04 **** Incremental Build of configuration Debug for project LAB3_Game ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:109:3: warning: implicit declaration of function 'SPITxRx_Setup' [-Wimplicit-function-declaration]
+  109 |   SPITxRx_Setup();
+      |   ^~~~~~~~~~~~~
+../Core/Src/main.c:110:3: warning: implicit declaration of function 'TikTokGame' [-Wimplicit-function-declaration]
+  110 |   TikTokGame();
+      |   ^~~~~~~~~~
+../Core/Src/main.c:111:3: warning: implicit declaration of function 'LEDdisplay' [-Wimplicit-function-declaration]
+  111 |   LEDdisplay();
+      |   ^~~~~~~~~~
+../Core/Src/main.c:112:3: warning: implicit declaration of function 'CoinLeftUART' [-Wimplicit-function-declaration]
+  112 |   CoinLeftUART();
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c:125:11: warning: implicit declaration of function 'SPITxRx_readIO' [-Wimplicit-function-declaration]
+  125 |           SPITxRx_readIO();
+      |           ^~~~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:364:6: warning: conflicting types for 'SPITxRx_Setup'; have 'void()'
+  364 | void SPITxRx_Setup()
+      |      ^~~~~~~~~~~~~
+../Core/Src/main.c:109:3: note: previous implicit declaration of 'SPITxRx_Setup' with type 'void()'
+  109 |   SPITxRx_Setup();
+      |   ^~~~~~~~~~~~~
+../Core/Src/main.c:373:6: warning: conflicting types for 'SPITxRx_readIO'; have 'void()'
+  373 | void SPITxRx_readIO()
+      |      ^~~~~~~~~~~~~~
+../Core/Src/main.c:125:11: note: previous implicit declaration of 'SPITxRx_readIO' with type 'void()'
+  125 |           SPITxRx_readIO();
+      |           ^~~~~~~~~~~~~~
+../Core/Src/main.c:386:6: warning: conflicting types for 'TikTokGame'; have 'void()'
+  386 | void TikTokGame()
+      |      ^~~~~~~~~~
+../Core/Src/main.c:110:3: note: previous implicit declaration of 'TikTokGame' with type 'void()'
+  110 |   TikTokGame();
+      |   ^~~~~~~~~~
+../Core/Src/main.c:541:6: warning: conflicting types for 'LEDdisplay'; have 'void()'
+  541 | void LEDdisplay() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:111:3: note: previous implicit declaration of 'LEDdisplay' with type 'void()'
+  111 |   LEDdisplay();
+      |   ^~~~~~~~~~
+../Core/Src/main.c:565:6: warning: conflicting types for 'CoinLeftUART'; have 'void()'
+  565 | void CoinLeftUART() {
+      |      ^~~~~~~~~~~~
+../Core/Src/main.c:112:3: note: previous implicit declaration of 'CoinLeftUART' with type 'void()'
+  112 |   CoinLeftUART();
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c: In function 'CoinLeftUART':
+../Core/Src/main.c:567:5: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  567 |     sprintf(coin_left_message, "Coin left is %d\n", game_left);
+      |     ^~~~~~~
+../Core/Src/main.c:21:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   20 | #include "main.h"
+  +++ |+#include <stdio.h>
+   21 | 
+../Core/Src/main.c:567:5: warning: incompatible implicit declaration of built-in function 'sprintf' [-Wbuiltin-declaration-mismatch]
+  567 |     sprintf(coin_left_message, "Coin left is %d\n", game_left);
+      |     ^~~~~~~
+../Core/Src/main.c:567:5: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+../Core/Src/main.c:568:64: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  568 |     HAL_UART_Transmit(&hlpuart1, (uint8_t *)coin_left_message, strlen(coin_left_message), HAL_MAX_DELAY);
+      |                                                                ^~~~~~
+../Core/Src/main.c:21:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   20 | #include "main.h"
+  +++ |+#include <string.h>
+   21 | 
+../Core/Src/main.c:568:64: warning: incompatible implicit declaration of built-in function 'strlen' [-Wbuiltin-declaration-mismatch]
+  568 |     HAL_UART_Transmit(&hlpuart1, (uint8_t *)coin_left_message, strlen(coin_left_message), HAL_MAX_DELAY);
+      |                                                                ^~~~~~
+../Core/Src/main.c:568:64: note: include '<string.h>' or provide a declaration of 'strlen'
+arm-none-eabi-gcc -o "LAB3_Game.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\UNIVERSITY\YR2\FRA222_MicroCon\FRA222_LAB3_SPIGAME\LAB2_Game\LAB3_Game\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LAB3_Game.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LAB3_Game.elf
+ 
+arm-none-eabi-size   LAB3_Game.elf 
+arm-none-eabi-objdump -h -S  LAB3_Game.elf  > "LAB3_Game.list"
+   text	   data	    bss	    dec	    hex	filename
+  23244	    104	   2264	  25612	   640c	LAB3_Game.elf
+Finished building: default.size.stdout
+ 
+Finished building: LAB3_Game.list
+ 
+04:19:35 **** Incremental Build of configuration Debug for project LAB3_Game ****
+make -j16 all 
+arm-none-eabi-size   LAB3_Game.elf 
+   text	   data	    bss	    dec	    hex	filename
+  23244	    104	   2264	  25612	   640c	LAB3_Game.elf
+Finished building: default.size.stdout
+ 

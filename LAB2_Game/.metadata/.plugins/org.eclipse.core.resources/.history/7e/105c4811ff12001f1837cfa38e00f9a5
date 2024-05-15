@@ -18,7 +18,8 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-
+#include <stdio.h>
+#include <string.h>
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -110,8 +111,8 @@ int main(void)
   TikTokGame();
   LEDdisplay();
   CoinLeftUART();
-  uint8_t text[] = "HELLO FIBO"; // Define the text message to send
-  HAL_UART_Transmit(&hlpuart1, text , 11, 10);
+//  uint8_t text[]="HELLO FIBO";
+//  HAL_UART_Transmit(&huart2, text , 11,1 0);//11 is size text and 10 is time out
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -121,9 +122,9 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  CoinLeftUART();
 	  SPITxRx_readIO();
 	  TikTokGame();
+	  CoinLeftUART(game_left);
 	  LEDdisplay();
   }
   /* USER CODE END 3 */
@@ -562,9 +563,9 @@ void LEDdisplay() {
 	            break;
 	    }
 }
-void CoinLeftUART() {
-    char coin_left_message[20]; // Buffer to store the message
-    sprintf(coin_left_message, "Coin left is %d\n", game_left);
+void CoinLeftUART(int coin_left) {
+    char coin_left_message[20]; // Assuming a maximum message length of 20 characters
+    sprintf(coin_left_message, "Coin left is %d\n", coin_left);
     HAL_UART_Transmit(&hlpuart1, (uint8_t *)coin_left_message, strlen(coin_left_message), HAL_MAX_DELAY);
 }
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)// timer interrupt for led
