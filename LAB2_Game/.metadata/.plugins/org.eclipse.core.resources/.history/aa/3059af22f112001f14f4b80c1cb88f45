@@ -536,7 +536,7 @@ void TikTokGame()
         }
         game_turn = 0;
     }
-    HAL_Delay(100);//delay
+    HAL_Delay(50);//delay
 }
 
 void HAL_SPI_TxRxCpltCallback(SPI_HandleTypeDef *hspi)

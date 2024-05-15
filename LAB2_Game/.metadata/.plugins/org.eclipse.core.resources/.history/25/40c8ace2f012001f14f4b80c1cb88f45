@@ -105,7 +105,6 @@ int main(void)
   MX_SPI3_Init();
   MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
-  HAL_TIM_Base_Start(&htim3); // start timer
   SPITxRx_Setup();
   TikTokGame();
   /* USER CODE END 2 */
@@ -354,14 +353,6 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)// timer interrupt{} create for light
-{
-if(htim == &htim3)
-{
-HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
-}
-}
-
 void SPITxRx_Setup()
 {
 //CS pulse
@@ -536,7 +527,6 @@ void TikTokGame()
         }
         game_turn = 0;
     }
-    HAL_Delay(100);//delay
 }
 
 void HAL_SPI_TxRxCpltCallback(SPI_HandleTypeDef *hspi)
