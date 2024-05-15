@@ -350,15 +350,10 @@ void TikTokGame()
     	    	        	game_pick = 2; // pick2
     	    	        	game_left = 3; // coin left 3
     	    	        	game_winner = 0; // no winner
-    	    	        	game_turn = 1;// next is ai turn
     	    	            break;
     	    	        case 7:// Button not press let it loop
     	    	            break;
     	    	        case 3:// Button 3 press reset
-    	    	        	game_pick = 0; // no pick
-    	    	        	game_left = 5; // coin left 5
-    	    	        	game_winner = 0; // no winner
-    	    	        	game_turn = 0;// human turn
     	    	            break;
     	    	        default:// multi press do nothing
     	    	            break;
