@@ -567,6 +567,7 @@ void TikTokGame()
                 game_left = 3; // coin left 3
                 game_winner = 0; // no winner
                 HAL_UART_Transmit(&hlpuart1, (uint8_t *)"AI pick 1\n", strlen("AI pick 1\n"), HAL_MAX_DELAY);
+                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn NOW!!\n", strlen("Your Turn NOW!!\n"), HAL_MAX_DELAY);
                 break;
             case 3:
                 // statements
@@ -574,6 +575,7 @@ void TikTokGame()
                 game_left = 2; // coin left 2
                 game_winner = 0; // no winner
                 HAL_UART_Transmit(&hlpuart1, (uint8_t *)"AI pick 1\n", strlen("AI pick 1\n"), HAL_MAX_DELAY);
+                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn NOW!!\n", strlen("Your Turn NOW!!\n"), HAL_MAX_DELAY);
                 break;
             case 2:
                 // statements
@@ -591,7 +593,7 @@ void TikTokGame()
                 break;
         }
         game_turn = 0;
-        HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn NOW!!\n", strlen("Your Turn NOW!!\n"), HAL_MAX_DELAY);
+        //HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn NOW!!\n", strlen("Your Turn NOW!!\n"), HAL_MAX_DELAY);
     }
     HAL_Delay(250);//delay
 }

@@ -8,8 +8,8 @@
 ../Core/Src/main.c:401:6:SPITxRx_Setup	1
 ../Core/Src/main.c:410:6:SPITxRx_readIO	2
 ../Core/Src/main.c:423:6:TikTokGame	22
-../Core/Src/main.c:599:6:LEDdisplay	5
-../Core/Src/main.c:637:6:CoinLeftUART	1
-../Core/Src/main.c:642:6:HAL_TIM_PeriodElapsedCallback	1
-../Core/Src/main.c:655:6:HAL_SPI_TxRxCpltCallback	1
-../Core/Src/main.c:665:6:Error_Handler	1
+../Core/Src/main.c:601:6:LEDdisplay	5
+../Core/Src/main.c:639:6:CoinLeftUART	1
+../Core/Src/main.c:644:6:HAL_TIM_PeriodElapsedCallback	1
+../Core/Src/main.c:657:6:HAL_SPI_TxRxCpltCallback	1
+../Core/Src/main.c:667:6:Error_Handler	1
