@@ -595,7 +595,7 @@ void TikTokGame()
         game_turn = 0;
         //HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn NOW!!\r\n", strlen("Your Turn NOW!!\r\n"), HAL_MAX_DELAY);
     }
-    HAL_Delay(200);//delay
+    HAL_Delay(250);//delay
 }
 
 void LEDdisplay() {

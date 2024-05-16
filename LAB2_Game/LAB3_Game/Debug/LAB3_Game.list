@@ -1847,8 +1847,8 @@ void TikTokGame()
  8000ec8:	601a      	str	r2, [r3, #0]
         //HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn NOW!!\r\n", strlen("Your Turn NOW!!\r\n"), HAL_MAX_DELAY);
     }
-    HAL_Delay(250);//delay
- 8000eca:	20fa      	movs	r0, #250	; 0xfa
+    HAL_Delay(200);//delay
+ 8000eca:	20c8      	movs	r0, #200	; 0xc8
  8000ecc:	f000 fab8 	bl	8001440 <HAL_Delay>
 }
  8000ed0:	bf00      	nop
