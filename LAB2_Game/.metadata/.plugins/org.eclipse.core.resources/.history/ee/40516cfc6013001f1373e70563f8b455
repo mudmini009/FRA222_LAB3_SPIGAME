@@ -116,11 +116,11 @@ int main(void)
   MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
   HAL_TIM_Base_Start(&htim3); // start timer
-    HAL_UART_Transmit(&hlpuart1, (uint8_t *)"\r\nYou need to PICK 1 or 2 coins VS AI\r\n", strlen("\r\nYou need to PICK 1 or 2 coins VS AI\r\n"), HAL_MAX_DELAY);
-    HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Who pick the last coin Win!!\r\n", strlen("Who pick the last coin Win!!\r\n"), HAL_MAX_DELAY);
-    HAL_UART_Transmit(&hlpuart1, (uint8_t *)"If you're ready please type\r\n", strlen("If you're ready please type\r\n"), HAL_MAX_DELAY);
-    HAL_UART_Transmit(&hlpuart1, (uint8_t *)"wanna play this game so bad\r\n", strlen("wanna play this game so bad\r\n"), HAL_MAX_DELAY);
-    HAL_UART_Transmit(&hlpuart1, (uint8_t *)"and now you can join\r\n", strlen("and now you can join\r\n"), HAL_MAX_DELAY);
+    HAL_UART_Transmit(&hlpuart1, (uint8_t *)"\nYou need to PICK 1 or 2 coins VS AI\n", strlen("\nYou need to PICK 1 or 2 coins VS AI\n"), HAL_MAX_DELAY);
+    HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Who pick the last coin Win!!\n", strlen("Who pick the last coin Win!!\n"), HAL_MAX_DELAY);
+    HAL_UART_Transmit(&hlpuart1, (uint8_t *)"If you're ready please type\n", strlen("If you're ready please type\n"), HAL_MAX_DELAY);
+    HAL_UART_Transmit(&hlpuart1, (uint8_t *)"wanna play this game so bad\n", strlen("wanna play this game so bad\n"), HAL_MAX_DELAY);
+    HAL_UART_Transmit(&hlpuart1, (uint8_t *)"and now you can join\n", strlen("and now you can join\n"), HAL_MAX_DELAY);
 //AreYouReadyToPlay();
 //SPITxRx_readIO();
 //TikTokGame();
@@ -385,13 +385,13 @@ void AreYouReadyToPlay() {
 
         if (status == HAL_OK && strcmp((char*)RxBuffer, "wanna play this game so bad") == 0) {//correct condition
             ReadyToPlay=1; //you are ready to play
-            HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Welcome Your Turn start!\r\n", strlen("Welcome Your Turn start!\r\n"), HAL_MAX_DELAY);
+            HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Welcome Your Turn start!\n", strlen("Welcome Your Turn start!\n"), HAL_MAX_DELAY);
             break; // Exit the loop once condition is met
         }
         else {
             ReadyToPlay=0;
-            HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Do you really wanna play? Just type\r\n", strlen("Do you really wanna play? Just type\r\n"), HAL_MAX_DELAY);
-            HAL_UART_Transmit(&hlpuart1, (uint8_t *)"wanna play this game so bad\r\n", strlen("wanna play this game so bad\r\n"), HAL_MAX_DELAY);
+            HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Do you really wanna play? Just type\n", strlen("Do you really wanna play? Just type\n"), HAL_MAX_DELAY);
+            HAL_UART_Transmit(&hlpuart1, (uint8_t *)"wanna play this game so bad\n", strlen("wanna play this game so bad\n"), HAL_MAX_DELAY);
         }
     }
 }
@@ -438,14 +438,14 @@ void TikTokGame()
     	                game_left = 4; // coin left 4
     	                game_winner = 0; // no winner
     	                game_turn = 1; // next is ai turn
-    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"You pick 1\r\n", strlen("You pick 1\r\n"), HAL_MAX_DELAY);
+    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"You pick 1\n", strlen("You pick 1\n"), HAL_MAX_DELAY);
     	                break;
     	            case 5: // Button 2 press pick 2
     	                game_pick = 2; // pick2
     	                game_left = 3; // coin left 3
     	                game_winner = 0; // no winner
     	                game_turn = 1; // next is ai turn
-    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"You pick 2\r\n", strlen("You pick 2\r\n"), HAL_MAX_DELAY);
+    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"You pick 2\n", strlen("You pick 2\n"), HAL_MAX_DELAY);
     	                break;
     	            case 7: // Button not press let it loop
     	                break;
@@ -454,8 +454,8 @@ void TikTokGame()
     	                game_left = 5; // coin left 5
     	                game_winner = 0; // no winner
     	                game_turn = 0; // human turn
-    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Loser gonna keep restart\r\n", strlen("Loser gonna keep restart\r\n"), HAL_MAX_DELAY);
-    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn NOW!!\r\n", strlen("Your Turn NOW!!\r\n"), HAL_MAX_DELAY);
+    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Loser gonna keep restart\n", strlen("Loser gonna keep restart\n"), HAL_MAX_DELAY);
+    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn NOW!!\n", strlen("Your Turn NOW!!\n"), HAL_MAX_DELAY);
     	                break;
     	            default: // multi press do nothing
     	                break;
@@ -469,14 +469,14 @@ void TikTokGame()
     	                game_left = 2; // coin left 2
     	                game_winner = 0; // no winner
     	                game_turn = 1; // next is ai turn
-    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"You pick 1\r\n", strlen("You pick 1\r\n"), HAL_MAX_DELAY);
+    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"You pick 1\n", strlen("You pick 1\n"), HAL_MAX_DELAY);
     	                break;
     	            case 5: // Button 2 press pick 2
     	                game_pick = 2; // pick2
     	                game_left = 1; // coin left 1
     	                game_winner = 0; // no winner
     	                game_turn = 1; // next is ai turn
-    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"You pick 2\r\n", strlen("You pick 2\r\n"), HAL_MAX_DELAY);
+    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"You pick 2\n", strlen("You pick 2\n"), HAL_MAX_DELAY);
     	                break;
     	            case 7: // Button not press let it loop
     	                break;
@@ -485,8 +485,8 @@ void TikTokGame()
     	                game_left = 5; // coin left 5
     	                game_winner = 0; // no winner
     	                game_turn = 0; // human turn
-    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Loser gonna keep restart\r\n", strlen("Loser gonna keep restart\r\n"), HAL_MAX_DELAY);
-    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn NOW!!\r\n", strlen("Your Turn NOW!!\r\n"), HAL_MAX_DELAY);
+    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Loser gonna keep restart\n", strlen("Loser gonna keep restart\n"), HAL_MAX_DELAY);
+    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn NOW!!\n", strlen("Your Turn NOW!!\n"), HAL_MAX_DELAY);
     	                break;
     	            default: // multi press do nothing
     	                break;
@@ -500,14 +500,14 @@ void TikTokGame()
     	                game_left = 1; // coin left 1
     	                game_winner = 0; // no winner
     	                game_turn = 1; // next is ai turn
-    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"You pick 1\r\n", strlen("You pick 1\r\n"), HAL_MAX_DELAY);
+    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"You pick 1\n", strlen("You pick 1\n"), HAL_MAX_DELAY);
     	                break;
     	            case 5: // Button 2 press pick 2
     	                game_pick = 2; // pick2
     	                game_left = 0; // coin left 1
     	                game_winner = 2; // human winner
     	                game_turn = 0; // reset to human
-    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"You pick 2\r\n", strlen("You pick 2\r\n"), HAL_MAX_DELAY);
+    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"You pick 2\n", strlen("You pick 2\n"), HAL_MAX_DELAY);
     	                break;
     	            case 7: // Button not press let it loop
     	                break;
@@ -516,8 +516,8 @@ void TikTokGame()
     	                game_left = 5; // coin left 5
     	                game_winner = 0; // no winner
     	                game_turn = 0; // human turn
-    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Loser gonna keep restart\r\n", strlen("Loser gonna keep restart\r\n"), HAL_MAX_DELAY);
-    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn NOW!!\r\n", strlen("Your Turn NOW!!\r\n"), HAL_MAX_DELAY);
+    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Loser gonna keep restart\n", strlen("Loser gonna keep restart\n"), HAL_MAX_DELAY);
+    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn NOW!!\n", strlen("Your Turn NOW!!\n"), HAL_MAX_DELAY);
     	                break;
     	            default: // multi press do nothing
     	                break;
@@ -531,14 +531,14 @@ void TikTokGame()
     	                game_left = 0; // coin left 0
     	                game_winner = 2; // human winner
     	                game_turn = 0; // reset to human
-    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"You pick 1\r\n", strlen("You pick 1\r\n"), HAL_MAX_DELAY);
+    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"You pick 1\n", strlen("You pick 1\n"), HAL_MAX_DELAY);
     	                break;
     	            case 5: // Button 2 press pick 2
     	                game_pick = 1; // force to pick1
     	                game_left = 0; // coin left 1
     	                game_winner = 2; // human winner
     	                game_turn = 0; // reset to human
-    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Are you blind? I gonna let you pick 1\r\n", strlen("Are you blind? I gonna let you pick 1\r\n"), HAL_MAX_DELAY);
+    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Are you blind? I gonna let you pick 1\n", strlen("Are you blind? I gonna let you pick 1\n"), HAL_MAX_DELAY);
     	                break;
     	            case 7: // Button not press let it loop
     	                break;
@@ -547,8 +547,8 @@ void TikTokGame()
     	                game_left = 5; // coin left 5
     	                game_winner = 0; // no winner
     	                game_turn = 0; // human turn
-    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Loser gonna keep restart\r\n", strlen("Loser gonna keep restart\r\n"), HAL_MAX_DELAY);
-    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn NOW!!\r\n", strlen("Your Turn NOW!!\r\n"), HAL_MAX_DELAY);
+    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Loser gonna keep restart\n", strlen("Loser gonna keep restart\n"), HAL_MAX_DELAY);
+    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn NOW!!\n", strlen("Your Turn NOW!!\n"), HAL_MAX_DELAY);
     	                break;
     	            default: // multi press do nothing
     	                break;
@@ -566,34 +566,34 @@ void TikTokGame()
                 game_pick = 1; // pick1
                 game_left = 3; // coin left 3
                 game_winner = 0; // no winner
-                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"AI pick 1\r\n", strlen("AI pick 1\r\n"), HAL_MAX_DELAY);
-                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn NOW!!\r\n", strlen("Your Turn NOW!!\r\n"), HAL_MAX_DELAY);
+                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"AI pick 1\n", strlen("AI pick 1\n"), HAL_MAX_DELAY);
+                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn NOW!!\n", strlen("Your Turn NOW!!\n"), HAL_MAX_DELAY);
                 break;
             case 3:
                 // statements
                 game_pick = 1; // pick1
                 game_left = 2; // coin left 2
                 game_winner = 0; // no winner
-                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"AI pick 1\r\n", strlen("AI pick 1\r\n"), HAL_MAX_DELAY);
-                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn NOW!!\r\n", strlen("Your Turn NOW!!\r\n"), HAL_MAX_DELAY);
+                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"AI pick 1\n", strlen("AI pick 1\n"), HAL_MAX_DELAY);
+                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn NOW!!\n", strlen("Your Turn NOW!!\n"), HAL_MAX_DELAY);
                 break;
             case 2:
                 // statements
                 game_pick = 2; // pick2
                 game_left = 0; // coin left 0
                 game_winner = 1; // ai winner
-                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"AI pick 2\r\n", strlen("AI pick 2\r\n"), HAL_MAX_DELAY);
+                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"AI pick 2\n", strlen("AI pick 2\n"), HAL_MAX_DELAY);
                 break;
             case 1:
                 // statements
                 game_pick = 1; // pick1
                 game_left = 0; // coin left 0
                 game_winner = 1; // ai winner
-                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"AI pick 1\r\n", strlen("AI pick 1\r\n"), HAL_MAX_DELAY);
+                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"AI pick 1\n", strlen("AI pick 1\n"), HAL_MAX_DELAY);
                 break;
         }
         game_turn = 0;
-        //HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn NOW!!\r\n", strlen("Your Turn NOW!!\r\n"), HAL_MAX_DELAY);
+        //HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn NOW!!\n", strlen("Your Turn NOW!!\n"), HAL_MAX_DELAY);
     }
     HAL_Delay(250);//delay
 }
@@ -618,9 +618,9 @@ void LEDdisplay() {
                 game_winner = 0; // RESET
                 game_turn = 0; // human turn
                 // Send the message over UART
-                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"AI Win!! Humanity Lost!\r\n", strlen("AI Win!! Humanity Lost!\r\n"), HAL_MAX_DELAY);
-                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Try again we believe in you\r\n", strlen("Try again we believe in you\r\n"), HAL_MAX_DELAY);
-                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Coin left is 5. It's your turn to pick.\r\n", strlen("Coin left is 5. It's your turn to pick.\r\n"), HAL_MAX_DELAY);
+                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"AI Win!! Humanity Lost!\n", strlen("AI Win!! Humanity Lost!\n"), HAL_MAX_DELAY);
+                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Try again we believe in you\n", strlen("Try again we believe in you\n"), HAL_MAX_DELAY);
+                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Coin left is 5. It's your turn to pick.\n", strlen("Coin left is 5. It's your turn to pick.\n"), HAL_MAX_DELAY);
 	            break;
 	        case 2:
 	            // Human wins
@@ -630,15 +630,15 @@ void LEDdisplay() {
                 game_winner = 0; // RESET
                 game_turn = 0; // human turn
                 // Send the message over UART
-                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Congrats You are winning!!!\r\n", strlen("Congrats You are winning!!!\r\n"), HAL_MAX_DELAY);
-                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"But now what?? Let's play again I know You still fun\r\n", strlen("But now what?? Let's play again I know You still fun\r\n"), HAL_MAX_DELAY);
-                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Coin left is 5. It's your turn to pick.\r\n", strlen("Coin left is 5. It's your turn to pick.\r\n"), HAL_MAX_DELAY);
+                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Congrats You are winning!!!\n", strlen("Congrats You are winning!!!\n"), HAL_MAX_DELAY);
+                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"But now what?? Let's play again I know You still fun\n", strlen("But now what?? Let's play again I know You still fun\n"), HAL_MAX_DELAY);
+                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Coin left is 5. It's your turn to pick.\n", strlen("Coin left is 5. It's your turn to pick.\n"), HAL_MAX_DELAY);
 	            break;
 	    }
 }
 void CoinLeftUART() {
 	 char coin_left_message[30]; // Buffer to store the message
-	    sprintf(coin_left_message, "Coin left is %d\r\r\n", game_left); // Use \r\r\n for proper newline
+	    sprintf(coin_left_message, "Coin left is %d\r\n", game_left); // Use \r\n for proper newline
 	    HAL_UART_Transmit(&hlpuart1, (uint8_t *)coin_left_message, strlen(coin_left_message), HAL_MAX_DELAY);
 }
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)// timer interrupt for led
@@ -687,7 +687,7 @@ void assert_failed(uint8_t *file, uint32_t line)
 {
   /* USER CODE BEGIN 6 */
   /* User can add his own implementation to report the file name and line number,
-     ex: printf("Wrong parameters value: file %s on line %d\r\r\n", file, line) */
+     ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
   /* USER CODE END 6 */
 }
 #endif /* USE_FULL_ASSERT */

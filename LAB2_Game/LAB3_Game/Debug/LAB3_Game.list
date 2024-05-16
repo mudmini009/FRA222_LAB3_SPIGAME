@@ -7,23 +7,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
   1 .text         0000545c  080001e0  080001e0  000101e0  2**4
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .rodata       000002d0  0800563c  0800563c  0001563c  2**2
+  2 .rodata       000002d8  0800563c  0800563c  0001563c  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  3 .ARM.extab    00000000  0800590c  0800590c  00020060  2**0
+  3 .ARM.extab    00000000  08005914  08005914  00020060  2**0
                   CONTENTS
-  4 .ARM          00000008  0800590c  0800590c  0001590c  2**2
+  4 .ARM          00000008  08005914  08005914  00015914  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  5 .preinit_array 00000000  08005914  08005914  00020060  2**0
+  5 .preinit_array 00000000  0800591c  0800591c  00020060  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  6 .init_array   00000004  08005914  08005914  00015914  2**2
+  6 .init_array   00000004  0800591c  0800591c  0001591c  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  7 .fini_array   00000004  08005918  08005918  00015918  2**2
+  7 .fini_array   00000004  08005920  08005920  00015920  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  8 .data         00000060  20000000  0800591c  00020000  2**2
+  8 .data         00000060  20000000  08005924  00020000  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  9 .bss          000002f4  20000060  0800597c  00020060  2**2
+  9 .bss          000002f4  20000060  08005984  00020060  2**2
                   ALLOC
- 10 ._user_heap_stack 00000604  20000354  0800597c  00020354  2**0
+ 10 ._user_heap_stack 00000604  20000354  08005984  00020354  2**0
                   ALLOC
  11 .ARM.attributes 00000030  00000000  00000000  00020060  2**0
                   CONTENTS, READONLY
@@ -471,33 +471,33 @@ int main(void)
   HAL_TIM_Base_Start(&htim3); // start timer
  8000608:	4818      	ldr	r0, [pc, #96]	; (800066c <main+0x80>)
  800060a:	f003 f837 	bl	800367c <HAL_TIM_Base_Start>
-    HAL_UART_Transmit(&hlpuart1, (uint8_t *)"\nYou need to PICK 1 or 2 coins VS AI\n", strlen("\nYou need to PICK 1 or 2 coins VS AI\n"), HAL_MAX_DELAY);
+    HAL_UART_Transmit(&hlpuart1, (uint8_t *)"\r\nYou need to PICK 1 or 2 coins VS AI\r\n", strlen("\r\nYou need to PICK 1 or 2 coins VS AI\r\n"), HAL_MAX_DELAY);
  800060e:	f04f 33ff 	mov.w	r3, #4294967295
- 8000612:	2225      	movs	r2, #37	; 0x25
+ 8000612:	2227      	movs	r2, #39	; 0x27
  8000614:	4916      	ldr	r1, [pc, #88]	; (8000670 <main+0x84>)
  8000616:	4817      	ldr	r0, [pc, #92]	; (8000674 <main+0x88>)
  8000618:	f003 fbec 	bl	8003df4 <HAL_UART_Transmit>
-    HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Who pick the last coin Win!!\n", strlen("Who pick the last coin Win!!\n"), HAL_MAX_DELAY);
+    HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Who pick the last coin Win!!\r\n", strlen("Who pick the last coin Win!!\r\n"), HAL_MAX_DELAY);
  800061c:	f04f 33ff 	mov.w	r3, #4294967295
- 8000620:	221d      	movs	r2, #29
+ 8000620:	221e      	movs	r2, #30
  8000622:	4915      	ldr	r1, [pc, #84]	; (8000678 <main+0x8c>)
  8000624:	4813      	ldr	r0, [pc, #76]	; (8000674 <main+0x88>)
  8000626:	f003 fbe5 	bl	8003df4 <HAL_UART_Transmit>
-    HAL_UART_Transmit(&hlpuart1, (uint8_t *)"If you're ready please type\n", strlen("If you're ready please type\n"), HAL_MAX_DELAY);
+    HAL_UART_Transmit(&hlpuart1, (uint8_t *)"If you're ready please type\r\n", strlen("If you're ready please type\r\n"), HAL_MAX_DELAY);
  800062a:	f04f 33ff 	mov.w	r3, #4294967295
- 800062e:	221c      	movs	r2, #28
+ 800062e:	221d      	movs	r2, #29
  8000630:	4912      	ldr	r1, [pc, #72]	; (800067c <main+0x90>)
  8000632:	4810      	ldr	r0, [pc, #64]	; (8000674 <main+0x88>)
  8000634:	f003 fbde 	bl	8003df4 <HAL_UART_Transmit>
-    HAL_UART_Transmit(&hlpuart1, (uint8_t *)"wanna play this game so bad\n", strlen("wanna play this game so bad\n"), HAL_MAX_DELAY);
+    HAL_UART_Transmit(&hlpuart1, (uint8_t *)"wanna play this game so bad\r\n", strlen("wanna play this game so bad\r\n"), HAL_MAX_DELAY);
  8000638:	f04f 33ff 	mov.w	r3, #4294967295
- 800063c:	221c      	movs	r2, #28
+ 800063c:	221d      	movs	r2, #29
  800063e:	4910      	ldr	r1, [pc, #64]	; (8000680 <main+0x94>)
  8000640:	480c      	ldr	r0, [pc, #48]	; (8000674 <main+0x88>)
  8000642:	f003 fbd7 	bl	8003df4 <HAL_UART_Transmit>
-    HAL_UART_Transmit(&hlpuart1, (uint8_t *)"and now you can join\n", strlen("and now you can join\n"), HAL_MAX_DELAY);
+    HAL_UART_Transmit(&hlpuart1, (uint8_t *)"and now you can join\r\n", strlen("and now you can join\r\n"), HAL_MAX_DELAY);
  8000646:	f04f 33ff 	mov.w	r3, #4294967295
- 800064a:	2215      	movs	r2, #21
+ 800064a:	2216      	movs	r2, #22
  800064c:	490d      	ldr	r1, [pc, #52]	; (8000684 <main+0x98>)
  800064e:	4809      	ldr	r0, [pc, #36]	; (8000674 <main+0x88>)
  8000650:	f003 fbd0 	bl	8003df4 <HAL_UART_Transmit>
@@ -1162,9 +1162,9 @@ void AreYouReadyToPlay() {
  8000a2a:	4b11      	ldr	r3, [pc, #68]	; (8000a70 <AreYouReadyToPlay+0x84>)
  8000a2c:	2201      	movs	r2, #1
  8000a2e:	601a      	str	r2, [r3, #0]
-            HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Welcome Your Turn start!\n", strlen("Welcome Your Turn start!\n"), HAL_MAX_DELAY);
+            HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Welcome Your Turn start!\r\n", strlen("Welcome Your Turn start!\r\n"), HAL_MAX_DELAY);
  8000a30:	f04f 33ff 	mov.w	r3, #4294967295
- 8000a34:	2219      	movs	r2, #25
+ 8000a34:	221a      	movs	r2, #26
  8000a36:	4912      	ldr	r1, [pc, #72]	; (8000a80 <AreYouReadyToPlay+0x94>)
  8000a38:	480f      	ldr	r0, [pc, #60]	; (8000a78 <AreYouReadyToPlay+0x8c>)
  8000a3a:	f003 f9db 	bl	8003df4 <HAL_UART_Transmit>
@@ -1176,15 +1176,15 @@ void AreYouReadyToPlay() {
  8000a40:	4b0b      	ldr	r3, [pc, #44]	; (8000a70 <AreYouReadyToPlay+0x84>)
  8000a42:	2200      	movs	r2, #0
  8000a44:	601a      	str	r2, [r3, #0]
-            HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Do you really wanna play? Just type\n", strlen("Do you really wanna play? Just type\n"), HAL_MAX_DELAY);
+            HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Do you really wanna play? Just type\r\n", strlen("Do you really wanna play? Just type\r\n"), HAL_MAX_DELAY);
  8000a46:	f04f 33ff 	mov.w	r3, #4294967295
- 8000a4a:	2224      	movs	r2, #36	; 0x24
+ 8000a4a:	2225      	movs	r2, #37	; 0x25
  8000a4c:	490d      	ldr	r1, [pc, #52]	; (8000a84 <AreYouReadyToPlay+0x98>)
  8000a4e:	480a      	ldr	r0, [pc, #40]	; (8000a78 <AreYouReadyToPlay+0x8c>)
  8000a50:	f003 f9d0 	bl	8003df4 <HAL_UART_Transmit>
-            HAL_UART_Transmit(&hlpuart1, (uint8_t *)"wanna play this game so bad\n", strlen("wanna play this game so bad\n"), HAL_MAX_DELAY);
+            HAL_UART_Transmit(&hlpuart1, (uint8_t *)"wanna play this game so bad\r\n", strlen("wanna play this game so bad\r\n"), HAL_MAX_DELAY);
  8000a54:	f04f 33ff 	mov.w	r3, #4294967295
- 8000a58:	221c      	movs	r2, #28
+ 8000a58:	221d      	movs	r2, #29
  8000a5a:	490b      	ldr	r1, [pc, #44]	; (8000a88 <AreYouReadyToPlay+0x9c>)
  8000a5c:	4806      	ldr	r0, [pc, #24]	; (8000a78 <AreYouReadyToPlay+0x8c>)
  8000a5e:	f003 f9c9 	bl	8003df4 <HAL_UART_Transmit>
@@ -1323,9 +1323,9 @@ void TikTokGame()
  8000b4a:	4b93      	ldr	r3, [pc, #588]	; (8000d98 <TikTokGame+0x2b8>)
  8000b4c:	2201      	movs	r2, #1
  8000b4e:	601a      	str	r2, [r3, #0]
-    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"You pick 1\n", strlen("You pick 1\n"), HAL_MAX_DELAY);
+    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"You pick 1\r\n", strlen("You pick 1\r\n"), HAL_MAX_DELAY);
  8000b50:	f04f 33ff 	mov.w	r3, #4294967295
- 8000b54:	220b      	movs	r2, #11
+ 8000b54:	220c      	movs	r2, #12
  8000b56:	4995      	ldr	r1, [pc, #596]	; (8000dac <TikTokGame+0x2cc>)
  8000b58:	4895      	ldr	r0, [pc, #596]	; (8000db0 <TikTokGame+0x2d0>)
  8000b5a:	f003 f94b 	bl	8003df4 <HAL_UART_Transmit>
@@ -1348,9 +1348,9 @@ void TikTokGame()
  8000b72:	4b89      	ldr	r3, [pc, #548]	; (8000d98 <TikTokGame+0x2b8>)
  8000b74:	2201      	movs	r2, #1
  8000b76:	601a      	str	r2, [r3, #0]
-    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"You pick 2\n", strlen("You pick 2\n"), HAL_MAX_DELAY);
+    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"You pick 2\r\n", strlen("You pick 2\r\n"), HAL_MAX_DELAY);
  8000b78:	f04f 33ff 	mov.w	r3, #4294967295
- 8000b7c:	220b      	movs	r2, #11
+ 8000b7c:	220c      	movs	r2, #12
  8000b7e:	498d      	ldr	r1, [pc, #564]	; (8000db4 <TikTokGame+0x2d4>)
  8000b80:	488b      	ldr	r0, [pc, #556]	; (8000db0 <TikTokGame+0x2d0>)
  8000b82:	f003 f937 	bl	8003df4 <HAL_UART_Transmit>
@@ -1375,15 +1375,15 @@ void TikTokGame()
  8000b9a:	4b7f      	ldr	r3, [pc, #508]	; (8000d98 <TikTokGame+0x2b8>)
  8000b9c:	2200      	movs	r2, #0
  8000b9e:	601a      	str	r2, [r3, #0]
-    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Loser gonna keep restart\n", strlen("Loser gonna keep restart\n"), HAL_MAX_DELAY);
+    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Loser gonna keep restart\r\n", strlen("Loser gonna keep restart\r\n"), HAL_MAX_DELAY);
  8000ba0:	f04f 33ff 	mov.w	r3, #4294967295
- 8000ba4:	2219      	movs	r2, #25
+ 8000ba4:	221a      	movs	r2, #26
  8000ba6:	4984      	ldr	r1, [pc, #528]	; (8000db8 <TikTokGame+0x2d8>)
  8000ba8:	4881      	ldr	r0, [pc, #516]	; (8000db0 <TikTokGame+0x2d0>)
  8000baa:	f003 f923 	bl	8003df4 <HAL_UART_Transmit>
-    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn NOW!!\n", strlen("Your Turn NOW!!\n"), HAL_MAX_DELAY);
+    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn NOW!!\r\n", strlen("Your Turn NOW!!\r\n"), HAL_MAX_DELAY);
  8000bae:	f04f 33ff 	mov.w	r3, #4294967295
- 8000bb2:	2210      	movs	r2, #16
+ 8000bb2:	2211      	movs	r2, #17
  8000bb4:	4981      	ldr	r1, [pc, #516]	; (8000dbc <TikTokGame+0x2dc>)
  8000bb6:	487e      	ldr	r0, [pc, #504]	; (8000db0 <TikTokGame+0x2d0>)
  8000bb8:	f003 f91c 	bl	8003df4 <HAL_UART_Transmit>
@@ -1428,9 +1428,9 @@ void TikTokGame()
  8000bfa:	4b67      	ldr	r3, [pc, #412]	; (8000d98 <TikTokGame+0x2b8>)
  8000bfc:	2201      	movs	r2, #1
  8000bfe:	601a      	str	r2, [r3, #0]
-    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"You pick 1\n", strlen("You pick 1\n"), HAL_MAX_DELAY);
+    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"You pick 1\r\n", strlen("You pick 1\r\n"), HAL_MAX_DELAY);
  8000c00:	f04f 33ff 	mov.w	r3, #4294967295
- 8000c04:	220b      	movs	r2, #11
+ 8000c04:	220c      	movs	r2, #12
  8000c06:	4969      	ldr	r1, [pc, #420]	; (8000dac <TikTokGame+0x2cc>)
  8000c08:	4869      	ldr	r0, [pc, #420]	; (8000db0 <TikTokGame+0x2d0>)
  8000c0a:	f003 f8f3 	bl	8003df4 <HAL_UART_Transmit>
@@ -1453,9 +1453,9 @@ void TikTokGame()
  8000c22:	4b5d      	ldr	r3, [pc, #372]	; (8000d98 <TikTokGame+0x2b8>)
  8000c24:	2201      	movs	r2, #1
  8000c26:	601a      	str	r2, [r3, #0]
-    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"You pick 2\n", strlen("You pick 2\n"), HAL_MAX_DELAY);
+    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"You pick 2\r\n", strlen("You pick 2\r\n"), HAL_MAX_DELAY);
  8000c28:	f04f 33ff 	mov.w	r3, #4294967295
- 8000c2c:	220b      	movs	r2, #11
+ 8000c2c:	220c      	movs	r2, #12
  8000c2e:	4961      	ldr	r1, [pc, #388]	; (8000db4 <TikTokGame+0x2d4>)
  8000c30:	485f      	ldr	r0, [pc, #380]	; (8000db0 <TikTokGame+0x2d0>)
  8000c32:	f003 f8df 	bl	8003df4 <HAL_UART_Transmit>
@@ -1480,15 +1480,15 @@ void TikTokGame()
  8000c4a:	4b53      	ldr	r3, [pc, #332]	; (8000d98 <TikTokGame+0x2b8>)
  8000c4c:	2200      	movs	r2, #0
  8000c4e:	601a      	str	r2, [r3, #0]
-    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Loser gonna keep restart\n", strlen("Loser gonna keep restart\n"), HAL_MAX_DELAY);
+    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Loser gonna keep restart\r\n", strlen("Loser gonna keep restart\r\n"), HAL_MAX_DELAY);
  8000c50:	f04f 33ff 	mov.w	r3, #4294967295
- 8000c54:	2219      	movs	r2, #25
+ 8000c54:	221a      	movs	r2, #26
  8000c56:	4958      	ldr	r1, [pc, #352]	; (8000db8 <TikTokGame+0x2d8>)
  8000c58:	4855      	ldr	r0, [pc, #340]	; (8000db0 <TikTokGame+0x2d0>)
  8000c5a:	f003 f8cb 	bl	8003df4 <HAL_UART_Transmit>
-    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn NOW!!\n", strlen("Your Turn NOW!!\n"), HAL_MAX_DELAY);
+    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn NOW!!\r\n", strlen("Your Turn NOW!!\r\n"), HAL_MAX_DELAY);
  8000c5e:	f04f 33ff 	mov.w	r3, #4294967295
- 8000c62:	2210      	movs	r2, #16
+ 8000c62:	2211      	movs	r2, #17
  8000c64:	4955      	ldr	r1, [pc, #340]	; (8000dbc <TikTokGame+0x2dc>)
  8000c66:	4852      	ldr	r0, [pc, #328]	; (8000db0 <TikTokGame+0x2d0>)
  8000c68:	f003 f8c4 	bl	8003df4 <HAL_UART_Transmit>
@@ -1533,9 +1533,9 @@ void TikTokGame()
  8000caa:	4b3b      	ldr	r3, [pc, #236]	; (8000d98 <TikTokGame+0x2b8>)
  8000cac:	2201      	movs	r2, #1
  8000cae:	601a      	str	r2, [r3, #0]
-    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"You pick 1\n", strlen("You pick 1\n"), HAL_MAX_DELAY);
+    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"You pick 1\r\n", strlen("You pick 1\r\n"), HAL_MAX_DELAY);
  8000cb0:	f04f 33ff 	mov.w	r3, #4294967295
- 8000cb4:	220b      	movs	r2, #11
+ 8000cb4:	220c      	movs	r2, #12
  8000cb6:	493d      	ldr	r1, [pc, #244]	; (8000dac <TikTokGame+0x2cc>)
  8000cb8:	483d      	ldr	r0, [pc, #244]	; (8000db0 <TikTokGame+0x2d0>)
  8000cba:	f003 f89b 	bl	8003df4 <HAL_UART_Transmit>
@@ -1558,9 +1558,9 @@ void TikTokGame()
  8000cd2:	4b31      	ldr	r3, [pc, #196]	; (8000d98 <TikTokGame+0x2b8>)
  8000cd4:	2200      	movs	r2, #0
  8000cd6:	601a      	str	r2, [r3, #0]
-    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"You pick 2\n", strlen("You pick 2\n"), HAL_MAX_DELAY);
+    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"You pick 2\r\n", strlen("You pick 2\r\n"), HAL_MAX_DELAY);
  8000cd8:	f04f 33ff 	mov.w	r3, #4294967295
- 8000cdc:	220b      	movs	r2, #11
+ 8000cdc:	220c      	movs	r2, #12
  8000cde:	4935      	ldr	r1, [pc, #212]	; (8000db4 <TikTokGame+0x2d4>)
  8000ce0:	4833      	ldr	r0, [pc, #204]	; (8000db0 <TikTokGame+0x2d0>)
  8000ce2:	f003 f887 	bl	8003df4 <HAL_UART_Transmit>
@@ -1585,15 +1585,15 @@ void TikTokGame()
  8000cfa:	4b27      	ldr	r3, [pc, #156]	; (8000d98 <TikTokGame+0x2b8>)
  8000cfc:	2200      	movs	r2, #0
  8000cfe:	601a      	str	r2, [r3, #0]
-    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Loser gonna keep restart\n", strlen("Loser gonna keep restart\n"), HAL_MAX_DELAY);
+    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Loser gonna keep restart\r\n", strlen("Loser gonna keep restart\r\n"), HAL_MAX_DELAY);
  8000d00:	f04f 33ff 	mov.w	r3, #4294967295
- 8000d04:	2219      	movs	r2, #25
+ 8000d04:	221a      	movs	r2, #26
  8000d06:	492c      	ldr	r1, [pc, #176]	; (8000db8 <TikTokGame+0x2d8>)
  8000d08:	4829      	ldr	r0, [pc, #164]	; (8000db0 <TikTokGame+0x2d0>)
  8000d0a:	f003 f873 	bl	8003df4 <HAL_UART_Transmit>
-    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn NOW!!\n", strlen("Your Turn NOW!!\n"), HAL_MAX_DELAY);
+    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn NOW!!\r\n", strlen("Your Turn NOW!!\r\n"), HAL_MAX_DELAY);
  8000d0e:	f04f 33ff 	mov.w	r3, #4294967295
- 8000d12:	2210      	movs	r2, #16
+ 8000d12:	2211      	movs	r2, #17
  8000d14:	4929      	ldr	r1, [pc, #164]	; (8000dbc <TikTokGame+0x2dc>)
  8000d16:	4826      	ldr	r0, [pc, #152]	; (8000db0 <TikTokGame+0x2d0>)
  8000d18:	f003 f86c 	bl	8003df4 <HAL_UART_Transmit>
@@ -1638,9 +1638,9 @@ void TikTokGame()
  8000d5a:	4b0f      	ldr	r3, [pc, #60]	; (8000d98 <TikTokGame+0x2b8>)
  8000d5c:	2200      	movs	r2, #0
  8000d5e:	601a      	str	r2, [r3, #0]
-    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"You pick 1\n", strlen("You pick 1\n"), HAL_MAX_DELAY);
+    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"You pick 1\r\n", strlen("You pick 1\r\n"), HAL_MAX_DELAY);
  8000d60:	f04f 33ff 	mov.w	r3, #4294967295
- 8000d64:	220b      	movs	r2, #11
+ 8000d64:	220c      	movs	r2, #12
  8000d66:	4911      	ldr	r1, [pc, #68]	; (8000dac <TikTokGame+0x2cc>)
  8000d68:	4811      	ldr	r0, [pc, #68]	; (8000db0 <TikTokGame+0x2d0>)
  8000d6a:	f003 f843 	bl	8003df4 <HAL_UART_Transmit>
@@ -1663,9 +1663,9 @@ void TikTokGame()
  8000d82:	4b05      	ldr	r3, [pc, #20]	; (8000d98 <TikTokGame+0x2b8>)
  8000d84:	2200      	movs	r2, #0
  8000d86:	601a      	str	r2, [r3, #0]
-    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Are you blind? I gonna let you pick 1\n", strlen("Are you blind? I gonna let you pick 1\n"), HAL_MAX_DELAY);
+    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Are you blind? I gonna let you pick 1\r\n", strlen("Are you blind? I gonna let you pick 1\r\n"), HAL_MAX_DELAY);
  8000d88:	f04f 33ff 	mov.w	r3, #4294967295
- 8000d8c:	2226      	movs	r2, #38	; 0x26
+ 8000d8c:	2227      	movs	r2, #39	; 0x27
  8000d8e:	490c      	ldr	r1, [pc, #48]	; (8000dc0 <TikTokGame+0x2e0>)
  8000d90:	4807      	ldr	r0, [pc, #28]	; (8000db0 <TikTokGame+0x2d0>)
  8000d92:	f003 f82f 	bl	8003df4 <HAL_UART_Transmit>
@@ -1678,10 +1678,10 @@ void TikTokGame()
  8000da8:	200001d8 	.word	0x200001d8
  8000dac:	0800573c 	.word	0x0800573c
  8000db0:	2000007c 	.word	0x2000007c
- 8000db4:	08005748 	.word	0x08005748
- 8000db8:	08005754 	.word	0x08005754
- 8000dbc:	08005770 	.word	0x08005770
- 8000dc0:	08005784 	.word	0x08005784
+ 8000db4:	0800574c 	.word	0x0800574c
+ 8000db8:	0800575c 	.word	0x0800575c
+ 8000dbc:	08005778 	.word	0x08005778
+ 8000dc0:	0800578c 	.word	0x0800578c
     	            case 7: // Button not press let it loop
     	                break;
     	            case 3: // Button 3 press reset
@@ -1701,15 +1701,15 @@ void TikTokGame()
  8000dd6:	4b42      	ldr	r3, [pc, #264]	; (8000ee0 <TikTokGame+0x400>)
  8000dd8:	2200      	movs	r2, #0
  8000dda:	601a      	str	r2, [r3, #0]
-    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Loser gonna keep restart\n", strlen("Loser gonna keep restart\n"), HAL_MAX_DELAY);
+    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Loser gonna keep restart\r\n", strlen("Loser gonna keep restart\r\n"), HAL_MAX_DELAY);
  8000ddc:	f04f 33ff 	mov.w	r3, #4294967295
- 8000de0:	2219      	movs	r2, #25
+ 8000de0:	221a      	movs	r2, #26
  8000de2:	4940      	ldr	r1, [pc, #256]	; (8000ee4 <TikTokGame+0x404>)
  8000de4:	4840      	ldr	r0, [pc, #256]	; (8000ee8 <TikTokGame+0x408>)
  8000de6:	f003 f805 	bl	8003df4 <HAL_UART_Transmit>
-    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn NOW!!\n", strlen("Your Turn NOW!!\n"), HAL_MAX_DELAY);
+    	                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn NOW!!\r\n", strlen("Your Turn NOW!!\r\n"), HAL_MAX_DELAY);
  8000dea:	f04f 33ff 	mov.w	r3, #4294967295
- 8000dee:	2210      	movs	r2, #16
+ 8000dee:	2211      	movs	r2, #17
  8000df0:	493e      	ldr	r1, [pc, #248]	; (8000eec <TikTokGame+0x40c>)
  8000df2:	483d      	ldr	r0, [pc, #244]	; (8000ee8 <TikTokGame+0x408>)
  8000df4:	f002 fffe 	bl	8003df4 <HAL_UART_Transmit>
@@ -1754,15 +1754,15 @@ void TikTokGame()
  8000e2c:	4b2b      	ldr	r3, [pc, #172]	; (8000edc <TikTokGame+0x3fc>)
  8000e2e:	2200      	movs	r2, #0
  8000e30:	601a      	str	r2, [r3, #0]
-                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"AI pick 1\n", strlen("AI pick 1\n"), HAL_MAX_DELAY);
+                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"AI pick 1\r\n", strlen("AI pick 1\r\n"), HAL_MAX_DELAY);
  8000e32:	f04f 33ff 	mov.w	r3, #4294967295
- 8000e36:	220a      	movs	r2, #10
+ 8000e36:	220b      	movs	r2, #11
  8000e38:	492d      	ldr	r1, [pc, #180]	; (8000ef0 <TikTokGame+0x410>)
  8000e3a:	482b      	ldr	r0, [pc, #172]	; (8000ee8 <TikTokGame+0x408>)
  8000e3c:	f002 ffda 	bl	8003df4 <HAL_UART_Transmit>
-                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn NOW!!\n", strlen("Your Turn NOW!!\n"), HAL_MAX_DELAY);
+                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn NOW!!\r\n", strlen("Your Turn NOW!!\r\n"), HAL_MAX_DELAY);
  8000e40:	f04f 33ff 	mov.w	r3, #4294967295
- 8000e44:	2210      	movs	r2, #16
+ 8000e44:	2211      	movs	r2, #17
  8000e46:	4929      	ldr	r1, [pc, #164]	; (8000eec <TikTokGame+0x40c>)
  8000e48:	4827      	ldr	r0, [pc, #156]	; (8000ee8 <TikTokGame+0x408>)
  8000e4a:	f002 ffd3 	bl	8003df4 <HAL_UART_Transmit>
@@ -1782,15 +1782,15 @@ void TikTokGame()
  8000e5c:	4b1f      	ldr	r3, [pc, #124]	; (8000edc <TikTokGame+0x3fc>)
  8000e5e:	2200      	movs	r2, #0
  8000e60:	601a      	str	r2, [r3, #0]
-                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"AI pick 1\n", strlen("AI pick 1\n"), HAL_MAX_DELAY);
+                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"AI pick 1\r\n", strlen("AI pick 1\r\n"), HAL_MAX_DELAY);
  8000e62:	f04f 33ff 	mov.w	r3, #4294967295
- 8000e66:	220a      	movs	r2, #10
+ 8000e66:	220b      	movs	r2, #11
  8000e68:	4921      	ldr	r1, [pc, #132]	; (8000ef0 <TikTokGame+0x410>)
  8000e6a:	481f      	ldr	r0, [pc, #124]	; (8000ee8 <TikTokGame+0x408>)
  8000e6c:	f002 ffc2 	bl	8003df4 <HAL_UART_Transmit>
-                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn NOW!!\n", strlen("Your Turn NOW!!\n"), HAL_MAX_DELAY);
+                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn NOW!!\r\n", strlen("Your Turn NOW!!\r\n"), HAL_MAX_DELAY);
  8000e70:	f04f 33ff 	mov.w	r3, #4294967295
- 8000e74:	2210      	movs	r2, #16
+ 8000e74:	2211      	movs	r2, #17
  8000e76:	491d      	ldr	r1, [pc, #116]	; (8000eec <TikTokGame+0x40c>)
  8000e78:	481b      	ldr	r0, [pc, #108]	; (8000ee8 <TikTokGame+0x408>)
  8000e7a:	f002 ffbb 	bl	8003df4 <HAL_UART_Transmit>
@@ -1810,9 +1810,9 @@ void TikTokGame()
  8000e8c:	4b13      	ldr	r3, [pc, #76]	; (8000edc <TikTokGame+0x3fc>)
  8000e8e:	2201      	movs	r2, #1
  8000e90:	601a      	str	r2, [r3, #0]
-                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"AI pick 2\n", strlen("AI pick 2\n"), HAL_MAX_DELAY);
+                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"AI pick 2\r\n", strlen("AI pick 2\r\n"), HAL_MAX_DELAY);
  8000e92:	f04f 33ff 	mov.w	r3, #4294967295
- 8000e96:	220a      	movs	r2, #10
+ 8000e96:	220b      	movs	r2, #11
  8000e98:	4916      	ldr	r1, [pc, #88]	; (8000ef4 <TikTokGame+0x414>)
  8000e9a:	4813      	ldr	r0, [pc, #76]	; (8000ee8 <TikTokGame+0x408>)
  8000e9c:	f002 ffaa 	bl	8003df4 <HAL_UART_Transmit>
@@ -1832,9 +1832,9 @@ void TikTokGame()
  8000eae:	4b0b      	ldr	r3, [pc, #44]	; (8000edc <TikTokGame+0x3fc>)
  8000eb0:	2201      	movs	r2, #1
  8000eb2:	601a      	str	r2, [r3, #0]
-                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"AI pick 1\n", strlen("AI pick 1\n"), HAL_MAX_DELAY);
+                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"AI pick 1\r\n", strlen("AI pick 1\r\n"), HAL_MAX_DELAY);
  8000eb4:	f04f 33ff 	mov.w	r3, #4294967295
- 8000eb8:	220a      	movs	r2, #10
+ 8000eb8:	220b      	movs	r2, #11
  8000eba:	490d      	ldr	r1, [pc, #52]	; (8000ef0 <TikTokGame+0x410>)
  8000ebc:	480a      	ldr	r0, [pc, #40]	; (8000ee8 <TikTokGame+0x408>)
  8000ebe:	f002 ff99 	bl	8003df4 <HAL_UART_Transmit>
@@ -1845,7 +1845,7 @@ void TikTokGame()
  8000ec4:	4b06      	ldr	r3, [pc, #24]	; (8000ee0 <TikTokGame+0x400>)
  8000ec6:	2200      	movs	r2, #0
  8000ec8:	601a      	str	r2, [r3, #0]
-        //HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn NOW!!\n", strlen("Your Turn NOW!!\n"), HAL_MAX_DELAY);
+        //HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Your Turn NOW!!\r\n", strlen("Your Turn NOW!!\r\n"), HAL_MAX_DELAY);
     }
     HAL_Delay(250);//delay
  8000eca:	20fa      	movs	r0, #250	; 0xfa
@@ -1857,11 +1857,11 @@ void TikTokGame()
  8000ed8:	20000000 	.word	0x20000000
  8000edc:	200001d8 	.word	0x200001d8
  8000ee0:	200001dc 	.word	0x200001dc
- 8000ee4:	08005754 	.word	0x08005754
+ 8000ee4:	0800575c 	.word	0x0800575c
  8000ee8:	2000007c 	.word	0x2000007c
- 8000eec:	08005770 	.word	0x08005770
- 8000ef0:	080057ac 	.word	0x080057ac
- 8000ef4:	080057b8 	.word	0x080057b8
+ 8000eec:	08005778 	.word	0x08005778
+ 8000ef0:	080057b4 	.word	0x080057b4
+ 8000ef4:	080057c0 	.word	0x080057c0
 
 08000ef8 <LEDdisplay>:
 
@@ -1880,9 +1880,9 @@ void LEDdisplay() {
  8000f0a:	d046      	beq.n	8000f9a <LEDdisplay+0xa2>
  8000f0c:	2b01      	cmp	r3, #1
  8000f0e:	d000      	beq.n	8000f12 <LEDdisplay+0x1a>
-                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Congrats You are winning!!!\n", strlen("Congrats You are winning!!!\n"), HAL_MAX_DELAY);
-                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"But now what?? Let's play again I know You still fun\n", strlen("But now what?? Let's play again I know You still fun\n"), HAL_MAX_DELAY);
-                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Coin left is 5. It's your turn to pick.\n", strlen("Coin left is 5. It's your turn to pick.\n"), HAL_MAX_DELAY);
+                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Congrats You are winning!!!\r\n", strlen("Congrats You are winning!!!\r\n"), HAL_MAX_DELAY);
+                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"But now what?? Let's play again I know You still fun\r\n", strlen("But now what?? Let's play again I know You still fun\r\n"), HAL_MAX_DELAY);
+                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Coin left is 5. It's your turn to pick.\r\n", strlen("Coin left is 5. It's your turn to pick.\r\n"), HAL_MAX_DELAY);
 	            break;
 	    }
 }
@@ -1903,21 +1903,21 @@ void LEDdisplay() {
  8000f24:	4b21      	ldr	r3, [pc, #132]	; (8000fac <LEDdisplay+0xb4>)
  8000f26:	2200      	movs	r2, #0
  8000f28:	601a      	str	r2, [r3, #0]
-                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"AI Win!! Humanity Lost!\n", strlen("AI Win!! Humanity Lost!\n"), HAL_MAX_DELAY);
+                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"AI Win!! Humanity Lost!\r\n", strlen("AI Win!! Humanity Lost!\r\n"), HAL_MAX_DELAY);
  8000f2a:	f04f 33ff 	mov.w	r3, #4294967295
- 8000f2e:	2218      	movs	r2, #24
+ 8000f2e:	2219      	movs	r2, #25
  8000f30:	491f      	ldr	r1, [pc, #124]	; (8000fb0 <LEDdisplay+0xb8>)
  8000f32:	4820      	ldr	r0, [pc, #128]	; (8000fb4 <LEDdisplay+0xbc>)
  8000f34:	f002 ff5e 	bl	8003df4 <HAL_UART_Transmit>
-                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Try again we believe in you\n", strlen("Try again we believe in you\n"), HAL_MAX_DELAY);
+                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Try again we believe in you\r\n", strlen("Try again we believe in you\r\n"), HAL_MAX_DELAY);
  8000f38:	f04f 33ff 	mov.w	r3, #4294967295
- 8000f3c:	221c      	movs	r2, #28
+ 8000f3c:	221d      	movs	r2, #29
  8000f3e:	491e      	ldr	r1, [pc, #120]	; (8000fb8 <LEDdisplay+0xc0>)
  8000f40:	481c      	ldr	r0, [pc, #112]	; (8000fb4 <LEDdisplay+0xbc>)
  8000f42:	f002 ff57 	bl	8003df4 <HAL_UART_Transmit>
-                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Coin left is 5. It's your turn to pick.\n", strlen("Coin left is 5. It's your turn to pick.\n"), HAL_MAX_DELAY);
+                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Coin left is 5. It's your turn to pick.\r\n", strlen("Coin left is 5. It's your turn to pick.\r\n"), HAL_MAX_DELAY);
  8000f46:	f04f 33ff 	mov.w	r3, #4294967295
- 8000f4a:	2228      	movs	r2, #40	; 0x28
+ 8000f4a:	2229      	movs	r2, #41	; 0x29
  8000f4c:	491b      	ldr	r1, [pc, #108]	; (8000fbc <LEDdisplay+0xc4>)
  8000f4e:	4819      	ldr	r0, [pc, #100]	; (8000fb4 <LEDdisplay+0xbc>)
  8000f50:	f002 ff50 	bl	8003df4 <HAL_UART_Transmit>
@@ -1939,21 +1939,21 @@ void LEDdisplay() {
  8000f68:	4b10      	ldr	r3, [pc, #64]	; (8000fac <LEDdisplay+0xb4>)
  8000f6a:	2200      	movs	r2, #0
  8000f6c:	601a      	str	r2, [r3, #0]
-                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Congrats You are winning!!!\n", strlen("Congrats You are winning!!!\n"), HAL_MAX_DELAY);
+                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Congrats You are winning!!!\r\n", strlen("Congrats You are winning!!!\r\n"), HAL_MAX_DELAY);
  8000f6e:	f04f 33ff 	mov.w	r3, #4294967295
- 8000f72:	221c      	movs	r2, #28
+ 8000f72:	221d      	movs	r2, #29
  8000f74:	4912      	ldr	r1, [pc, #72]	; (8000fc0 <LEDdisplay+0xc8>)
  8000f76:	480f      	ldr	r0, [pc, #60]	; (8000fb4 <LEDdisplay+0xbc>)
  8000f78:	f002 ff3c 	bl	8003df4 <HAL_UART_Transmit>
-                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"But now what?? Let's play again I know You still fun\n", strlen("But now what?? Let's play again I know You still fun\n"), HAL_MAX_DELAY);
+                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"But now what?? Let's play again I know You still fun\r\n", strlen("But now what?? Let's play again I know You still fun\r\n"), HAL_MAX_DELAY);
  8000f7c:	f04f 33ff 	mov.w	r3, #4294967295
- 8000f80:	2235      	movs	r2, #53	; 0x35
+ 8000f80:	2236      	movs	r2, #54	; 0x36
  8000f82:	4910      	ldr	r1, [pc, #64]	; (8000fc4 <LEDdisplay+0xcc>)
  8000f84:	480b      	ldr	r0, [pc, #44]	; (8000fb4 <LEDdisplay+0xbc>)
  8000f86:	f002 ff35 	bl	8003df4 <HAL_UART_Transmit>
-                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Coin left is 5. It's your turn to pick.\n", strlen("Coin left is 5. It's your turn to pick.\n"), HAL_MAX_DELAY);
+                HAL_UART_Transmit(&hlpuart1, (uint8_t *)"Coin left is 5. It's your turn to pick.\r\n", strlen("Coin left is 5. It's your turn to pick.\r\n"), HAL_MAX_DELAY);
  8000f8a:	f04f 33ff 	mov.w	r3, #4294967295
- 8000f8e:	2228      	movs	r2, #40	; 0x28
+ 8000f8e:	2229      	movs	r2, #41	; 0x29
  8000f90:	490a      	ldr	r1, [pc, #40]	; (8000fbc <LEDdisplay+0xc4>)
  8000f92:	4808      	ldr	r0, [pc, #32]	; (8000fb4 <LEDdisplay+0xbc>)
  8000f94:	f002 ff2e 	bl	8003df4 <HAL_UART_Transmit>
@@ -1968,12 +1968,12 @@ void LEDdisplay() {
  8000fa4:	200001e0 	.word	0x200001e0
  8000fa8:	20000000 	.word	0x20000000
  8000fac:	200001dc 	.word	0x200001dc
- 8000fb0:	080057c4 	.word	0x080057c4
+ 8000fb0:	080057cc 	.word	0x080057cc
  8000fb4:	2000007c 	.word	0x2000007c
- 8000fb8:	080057e0 	.word	0x080057e0
- 8000fbc:	08005800 	.word	0x08005800
- 8000fc0:	0800582c 	.word	0x0800582c
- 8000fc4:	0800584c 	.word	0x0800584c
+ 8000fb8:	080057e8 	.word	0x080057e8
+ 8000fbc:	08005808 	.word	0x08005808
+ 8000fc0:	08005834 	.word	0x08005834
+ 8000fc4:	08005854 	.word	0x08005854
 
 08000fc8 <CoinLeftUART>:
 void CoinLeftUART() {
@@ -1981,7 +1981,7 @@ void CoinLeftUART() {
  8000fca:	b088      	sub	sp, #32
  8000fcc:	af00      	add	r7, sp, #0
 	 char coin_left_message[30]; // Buffer to store the message
-	    sprintf(coin_left_message, "Coin left is %d\r\n", game_left); // Use \r\n for proper newline
+	    sprintf(coin_left_message, "Coin left is %d\r\r\n", game_left); // Use \r\r\n for proper newline
  8000fce:	4b0b      	ldr	r3, [pc, #44]	; (8000ffc <CoinLeftUART+0x34>)
  8000fd0:	681a      	ldr	r2, [r3, #0]
  8000fd2:	463b      	mov	r3, r7
@@ -2004,7 +2004,7 @@ void CoinLeftUART() {
  8000ff8:	46bd      	mov	sp, r7
  8000ffa:	bd80      	pop	{r7, pc}
  8000ffc:	20000000 	.word	0x20000000
- 8001000:	08005884 	.word	0x08005884
+ 8001000:	0800588c 	.word	0x0800588c
  8001004:	2000007c 	.word	0x2000007c
 
 08001008 <HAL_SPI_TxRxCpltCallback>:
@@ -2783,7 +2783,7 @@ LoopForever:
   ldr r1, =_edata
  800134c:	20000060 	.word	0x20000060
   ldr r2, =_sidata
- 8001350:	0800591c 	.word	0x0800591c
+ 8001350:	08005924 	.word	0x08005924
   ldr r2, =_sbss
  8001354:	20000060 	.word	0x20000060
   ldr r4, =_ebss
@@ -5937,7 +5937,7 @@ HAL_StatusTypeDef HAL_RCC_ClockConfig(RCC_ClkInitTypeDef  *RCC_ClkInitStruct, ui
  8002508:	40022000 	.word	0x40022000
  800250c:	40021000 	.word	0x40021000
  8002510:	04c4b400 	.word	0x04c4b400
- 8002514:	08005898 	.word	0x08005898
+ 8002514:	080058a0 	.word	0x080058a0
  8002518:	20000004 	.word	0x20000004
  800251c:	20000008 	.word	0x20000008
 
@@ -6118,7 +6118,7 @@ uint32_t HAL_RCC_GetPCLK1Freq(void)
  800261c:	4618      	mov	r0, r3
  800261e:	bd80      	pop	{r7, pc}
  8002620:	40021000 	.word	0x40021000
- 8002624:	080058a8 	.word	0x080058a8
+ 8002624:	080058b0 	.word	0x080058b0
 
 08002628 <HAL_RCC_GetPCLK2Freq>:
   * @note   Each time PCLK2 changes, this function must be called to update the
@@ -6145,7 +6145,7 @@ uint32_t HAL_RCC_GetPCLK2Freq(void)
  8002648:	4618      	mov	r0, r3
  800264a:	bd80      	pop	{r7, pc}
  800264c:	40021000 	.word	0x40021000
- 8002650:	080058a8 	.word	0x080058a8
+ 8002650:	080058b0 	.word	0x080058b0
 
 08002654 <RCC_GetSysClockFreqFromPLLSource>:
 /**
@@ -11495,7 +11495,7 @@ HAL_StatusTypeDef UART_SetConfig(UART_HandleTypeDef *huart)
  800465a:	bf00      	nop
  800465c:	40008000 	.word	0x40008000
  8004660:	00f42400 	.word	0x00f42400
- 8004664:	080058b0 	.word	0x080058b0
+ 8004664:	080058b8 	.word	0x080058b8
       }
       else
       {
@@ -12634,8 +12634,8 @@ static void UARTEx_SetNbDataToProcess(UART_HandleTypeDef *huart)
  8004ccc:	f85d 7b04 	ldr.w	r7, [sp], #4
  8004cd0:	4770      	bx	lr
  8004cd2:	bf00      	nop
- 8004cd4:	080058c8 	.word	0x080058c8
- 8004cd8:	080058d0 	.word	0x080058d0
+ 8004cd4:	080058d0 	.word	0x080058d0
+ 8004cd8:	080058d8 	.word	0x080058d8
 
 08004cdc <siprintf>:
  8004cdc:	b40e      	push	{r1, r2, r3}
@@ -12707,10 +12707,10 @@ static void UARTEx_SetNbDataToProcess(UART_HandleTypeDef *huart)
  8004d6a:	4798      	blx	r3
  8004d6c:	3601      	adds	r6, #1
  8004d6e:	e7f2      	b.n	8004d56 <__libc_init_array+0x1e>
- 8004d70:	08005914 	.word	0x08005914
- 8004d74:	08005914 	.word	0x08005914
- 8004d78:	08005914 	.word	0x08005914
- 8004d7c:	08005918 	.word	0x08005918
+ 8004d70:	0800591c 	.word	0x0800591c
+ 8004d74:	0800591c 	.word	0x0800591c
+ 8004d78:	0800591c 	.word	0x0800591c
+ 8004d7c:	08005920 	.word	0x08005920
 
 08004d80 <__retarget_lock_acquire_recursive>:
  8004d80:	4770      	bx	lr
@@ -13217,11 +13217,11 @@ static void UARTEx_SetNbDataToProcess(UART_HandleTypeDef *huart)
  8005208:	4638      	mov	r0, r7
  800520a:	f000 f879 	bl	8005300 <_printf_i>
  800520e:	e7eb      	b.n	80051e8 <_svfiprintf_r+0x1c0>
- 8005210:	080058d8 	.word	0x080058d8
- 8005214:	080058e2 	.word	0x080058e2
+ 8005210:	080058e0 	.word	0x080058e0
+ 8005214:	080058ea 	.word	0x080058ea
  8005218:	00000000 	.word	0x00000000
  800521c:	08004f75 	.word	0x08004f75
- 8005220:	080058de 	.word	0x080058de
+ 8005220:	080058e6 	.word	0x080058e6
 
 08005224 <_printf_common>:
  8005224:	e92d 47f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
@@ -13554,8 +13554,8 @@ static void UARTEx_SetNbDataToProcess(UART_HandleTypeDef *huart)
  8005534:	f104 0619 	add.w	r6, r4, #25
  8005538:	e7f5      	b.n	8005526 <_printf_i+0x226>
  800553a:	bf00      	nop
- 800553c:	080058e9 	.word	0x080058e9
- 8005540:	080058fa 	.word	0x080058fa
+ 800553c:	080058f1 	.word	0x080058f1
+ 8005540:	08005902 	.word	0x08005902
 
 08005544 <memmove>:
  8005544:	4288      	cmp	r0, r1
