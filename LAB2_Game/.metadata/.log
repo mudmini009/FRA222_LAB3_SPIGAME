@@ -2071,3 +2071,9 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64
 
 !ENTRY org.eclipse.cdt.core 1 0 2024-05-24 15:16:50.127
 !MESSAGE Indexed 'CANBUS_EXAM' (23 sources, 83 headers) in 5.02 sec: 5,650 declarations; 28,921 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0058%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-05-24 15:18:01.589
+!MESSAGE Indexed 'SPI_EXAM' (23 sources, 83 headers) in 2.77 sec: 5,650 declarations; 28,921 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0058%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-05-24 15:20:03.233
+!MESSAGE Indexed 'I2C_EXAM' (23 sources, 83 headers) in 2.49 sec: 5,650 declarations; 28,921 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0058%)
