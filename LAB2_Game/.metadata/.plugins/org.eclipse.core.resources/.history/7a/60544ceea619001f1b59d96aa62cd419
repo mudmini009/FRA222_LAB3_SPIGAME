@@ -45,10 +45,7 @@ FDCAN_HandleTypeDef hfdcan1;
 UART_HandleTypeDef hlpuart1;
 
 /* USER CODE BEGIN PV */
-FDCAN_RxHeaderTypeDefpRxHeader;
-uint8_t data[8];
-uint8_t
-pTxData[8]={0xFF,0x00,0xAA,0x55,0x12,0x34,0x56,0x78};
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -96,17 +93,7 @@ int main(void)
   MX_LPUART1_UART_Init();
   MX_FDCAN1_Init();
   /* USER CODE BEGIN 2 */
-  FDCAN_FilterTypeDefsFilterConfig=
-  {
-  .FilterConfig = FDCAN_FILTER_TO_RXFIFO0,
-  .FilterIndex = 0,
-  .FilterID1 = 0x123,
-  .FilterID2 = 0x124,
-  .IdType= FDCAN_STANDARD_ID,
-  .FilterType= FDCAN_FILTER_RANGE
-  };
-  HAL_FDCAN_ConfigFilter(&hfdcan1, &sFilterConfig);
-  HAL_FDCAN_Start(&hfdcan1);
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -116,19 +103,6 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  FDCAN_TxHeaderTypeDef pTxHeader = {
-	  .BitRateSwitch = FDCAN_BRS_OFF,
-	  .DataLength = FDCAN_DLC_BYTES_8,
-	  .ErrorStateIndicator = FDCAN_ESI_ACTIVE,
-	  .FDFormat = FDCAN_DATA_FRAME,
-	  .IdType = FDCAN_STANDARD_ID,
-	  .Identifier = 0x123,
-	  .MessageMarker = 1,
-	  .TxEventFifoControl = FDCAN_TX_EVENT
-	  };
-	  HAL_FDCAN_AddMessageToTxFifoQ(&hfdcan1, &pTxHeader, pTxData);
-	  HAL_Delay(1000);
-	  HAL_FDCAN_GetRxMessage(&hfdcan1, FDCAN_RX_FIFO0, &pRxHeader, data);
   }
   /* USER CODE END 3 */
 }

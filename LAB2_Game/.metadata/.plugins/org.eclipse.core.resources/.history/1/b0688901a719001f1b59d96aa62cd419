@@ -116,19 +116,6 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  FDCAN_TxHeaderTypeDef pTxHeader = {
-	  .BitRateSwitch = FDCAN_BRS_OFF,
-	  .DataLength = FDCAN_DLC_BYTES_8,
-	  .ErrorStateIndicator = FDCAN_ESI_ACTIVE,
-	  .FDFormat = FDCAN_DATA_FRAME,
-	  .IdType = FDCAN_STANDARD_ID,
-	  .Identifier = 0x123,
-	  .MessageMarker = 1,
-	  .TxEventFifoControl = FDCAN_TX_EVENT
-	  };
-	  HAL_FDCAN_AddMessageToTxFifoQ(&hfdcan1, &pTxHeader, pTxData);
-	  HAL_Delay(1000);
-	  HAL_FDCAN_GetRxMessage(&hfdcan1, FDCAN_RX_FIFO0, &pRxHeader, data);
   }
   /* USER CODE END 3 */
 }
